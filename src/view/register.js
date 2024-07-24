@@ -4,7 +4,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import InputAuth from '../components/input-auth';
 
-const notify = () => toast.success("Inicio de sesión exitoso");
+const notify = () => toast.success("Registrado exitosamente");
 
 const Login = () => {
   return (
@@ -27,8 +27,9 @@ const Login = () => {
               style={{background: '#3D1DFF'}}
               onClick={notify}
             >
-              Ingresar
+              Registrarse
             </button>
+            
             <ToastContainer />
           </div>
         </form>
