@@ -1,0 +1,12 @@
+{
+    "clasevuelo": [
+        { "value": "Economico", "label": "Economico" },
+        { "value": "Business", "label": "Business" },
+        { "value": "Primera clase", "label": "Primera clase" }
+    ],
+
+    "tipovuelo": [
+        { "value": "Directo", "label": "Directo" },
+        { "value": "Escala", "label": "Escala" }
+    ]
+}
