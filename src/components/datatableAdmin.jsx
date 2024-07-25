@@ -72,7 +72,7 @@ const TableAdmin = ({ filters }) => {
       }
 
       setFilteredData(filtered);
-      setCurrentPage(1); // Reset to first page when filters change
+      setCurrentPage(1); 
     };
 
     applyFilters();

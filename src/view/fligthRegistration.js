@@ -1,5 +1,5 @@
 import React from "react";
-import options from "../options-select.json";
+import options from "../.json/options-select.json";
 
 const FlightRegistration = () => {
   return (
