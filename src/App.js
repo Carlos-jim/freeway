@@ -4,6 +4,7 @@ import Login from './view/login';
 import Register from './view/register';
 import FlightRegistration from './view/fligthRegistration';
 import ReservationTable from './view/reservas';
+import FlightReservation from './view/FligthReservation';
 function App() {
   return (
     <Router>
@@ -13,6 +14,7 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/registrar-vuelo" element={<FlightRegistration />} />
           <Route path="/reservacion" element={<ReservationTable />} />
+          <Route path="/busqueda-vuelos" element={<FlightReservation />} />
         </Routes>
       </div>
     </Router>
