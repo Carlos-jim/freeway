@@ -1,5 +1,5 @@
 import React from "react";
-import backgroundImage from "../avions-prueba.jpg"; // Asegúrate de que la imagen esté en el directorio src
+import backgroundImage from "../public/avions-prueba.jpg"; // Asegúrate de que la imagen esté en el directorio src
 
 const BackgroundImgUser = () => {
   return (
