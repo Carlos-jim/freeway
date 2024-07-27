@@ -1,12 +1,15 @@
 import React from "react";
 import options from "../.json/options-select.json";
+import Navbar from "../components/navbarUser";
 
 const FlightRegistration = () => {
   return (
+    <div>
+      <Navbar></Navbar>
     <div className="flex flex-col items-center justify-center bg-gray-100">
       <div className="bg-white rounded w-full">
         <h1
-          className="text-4xl font-bold text-center mb-8 text-white p-4 rounded-t-md"
+          className="text-4xl font-bold text-center mb-8 text-white p-4"
           style={{ background: "#6147FF" }}
         >
           REGISTRO DE VUELOS
@@ -135,6 +138,7 @@ const FlightRegistration = () => {
           </div>
         </form>
       </div>
+    </div>
     </div>
   );
 };

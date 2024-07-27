@@ -12,8 +12,6 @@ const Navbar = () => {
           <a href="#inicio" className="text-gray-700 hover:text-gray-900">Inicio</a>
           <a href="#contacto" className="text-gray-700 hover:text-gray-900">Contacto</a>
           <a href="#idioma" className="text-gray-700 hover:text-gray-900">Idioma</a>
-          <a href="#iniciar-sesion" className="text-gray-700 hover:text-gray-900">Iniciar sesión</a>
-          <a href="#signup" className="bg-purple-500 text-white px-4 py-2 rounded-md hover:bg-purple-700">Registrate</a>
         </div>
         <div className="md:hidden">
           <button className="text-gray-700 focus:outline-none focus:text-gray-900">
