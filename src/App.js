@@ -6,6 +6,8 @@ import FlightRegistration from './view/fligthRegistration';
 import ReservationTable from './view/reservas';
 import FlightReservation from './view/FligthReservation';
 import PaymentForm from './view/paymentForm';
+import CheckInForm from './view/checkin';
+import ItineraryTable from './view/Itinerario';
 function App() {
   return (
     <Router>
@@ -17,6 +19,9 @@ function App() {
           <Route path="/registrar-vuelo" element={<FlightRegistration />} />
           <Route path="/reservacion" element={<ReservationTable />} />
           <Route path="/busqueda-vuelos" element={<FlightReservation />} />
+          <Route path="/chequeo" element={<CheckInForm />} />
+          <Route path="/itinerario" element={<ItineraryTable />} />
+
         </Routes>
       </div>
     </Router>
