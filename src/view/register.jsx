@@ -16,19 +16,24 @@ const Login = () => {
           <h1
             className="text-5xl font-bold text-center bg-clip-text text-transparent mb-9"
             style={{
-              backgroundImage:
-                "linear-gradient(to left, #3D1DFF, #6147FF, #D451FF, #EC458D, #F8938C)",
+              color: "#6147FF",
             }}
           >
             Freeway Airlines
           </h1>
           <form>
+            <h2
+              className="block text-gray-800 text-sm font-bold mb-2 text-center mb-9"
+              style={{ color: "#6147FF" }}
+            >
+              REGISTRATE
+            </h2>
             <InputAuth />
             <div className="flex items-center justify-center">
               <button
                 className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline w-full"
                 type="button"
-                style={{ background: "#3D1DFF" }}
+                style={{ background: "#37F83F" }}
                 onClick={notify}
               >
                 Registrarse

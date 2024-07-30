@@ -115,7 +115,7 @@ const ItineraryTable = () => {
                   <td className="py-3 px-4">{item.tipo}</td>
                   <td className="py-3 px-4">{item.precio}</td>
                   <td className="py-3 px-4 text-center">
-                    <button className="bg-purple-500 text-white rounded-full p-2 hover:bg-purple-700 focus:outline-none focus:shadow-outline">
+                    <button className="bg-[#37F83F] text-white rounded-mt p-2 hover:bg-purple-700 focus:outline-none focus:shadow-outline">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         fill="none"

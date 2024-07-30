@@ -7,7 +7,7 @@ const PaymentForm = () => {
       <Navbar />
       <div className="min-h-screen flex items-center justify-center">
         <div className="bg-white p-8 rounded-lg w-full max-w-sm">
-          <h1 className="text-3xl font-bold text-center text-transparent bg-clip-text bg-gradient-to-r from-pink-500 to-purple-500 mb-6">
+          <h1 className="text-3xl font-bold text-center text-transparent bg-clip-text bg-[#6147FF] mb-6">
             Freeway Airlines
           </h1>
           <h2 className="text-xl text-center mb-4" style={{ color: "#6147FF" }}>
@@ -40,7 +40,7 @@ const PaymentForm = () => {
               className="border p-2 rounded w-full"
             />
           </div>
-          <button className="bg-purple-600 text-white p-2 rounded w-full mt-4">
+          <button className="bg-[#37F83F] text-white p-2 rounded w-full mt-4">
             Registrarse
           </button>
           <div className="text-center mt-4 text-gray-700">

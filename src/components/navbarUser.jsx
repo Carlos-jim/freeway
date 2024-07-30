@@ -11,8 +11,7 @@ const Navbar = () => {
     <nav className="bg-white p-4 shadow-md">
       <div className="container mx-auto flex justify-between items-center">
         <div className="text-2xl font-bold">
-          <span className="text-pink-500">Freeway</span>
-          <span className="text-purple-500">Airlines</span>
+          <span className="text-[#6147FF]">Freeway Airlines</span>
         </div>
         <div className="hidden md:flex items-center space-x-4">
           <a href="#inicio" className="text-gray-700 hover:text-gray-900">Inicio</a>

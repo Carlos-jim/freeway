@@ -32,7 +32,7 @@ const CheckInForm = () => {
               <span className="text-sm mt-2">TARJETA DE EMBARQUE</span>
             </div>
           </div>
-          <form>
+          <form className='flex items-center flex-col'>
             <div className="mb-4">
               <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="reservationCode">
                 CÓDIGO DE RESERVA
@@ -41,7 +41,7 @@ const CheckInForm = () => {
                 id="reservationCode"
                 type="text"
                 placeholder="Código de Reserva"
-                className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                className="shadow appearance-none border rounded w-64 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
               />
             </div>
             <div className="mb-6">
@@ -52,7 +52,7 @@ const CheckInForm = () => {
                 id="lastName"
                 type="text"
                 placeholder="Apellido(s)"
-                className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                className="shadow appearance-none border rounded w-64 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
               />
             </div>
             <div className="flex flex-col items-center justify-between">

@@ -6,8 +6,7 @@ const NavbarAuth = () => {
     <nav className="bg-white p-4 shadow-md">
       <div className="container mx-auto flex justify-between items-center">
         <div className="text-2xl font-bold">
-          <span className="text-pink-500">Freeway</span>
-          <span className="text-purple-500">Airlines</span>
+          <span className="text-[#6147FF]">Freeway Airlines</span>
         </div>
         <div className="hidden md:flex items-center space-x-4">
           <Link to="/login">
@@ -23,7 +22,7 @@ const NavbarAuth = () => {
             <a
               href="#signup"
               className="text-white px-4 py-2 rounded-md hover:bg-purple-700"
-              style={{background: "#3D1DFF"}}
+              style={{ background: "#6147FF" }}
             >
               Registrate
             </a>
