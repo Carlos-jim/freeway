@@ -1,7 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
 import visaLogo from "../public/visa.png";
 import Navbar from "../components/navbarUser";
+import { CSSTransition } from 'react-transition-group';
+import '../public/paymentForm.css'; // Asegúrate de tener esta hoja de estilos
+
 const PaymentForm = () => {
+  const [showPaymentFields, setShowPaymentFields] = useState(false);
+
+  const handleCardClick = () => {
+    setShowPaymentFields(!showPaymentFields);
+  };
+
   return (
     <div>
       <Navbar />
@@ -13,7 +22,10 @@ const PaymentForm = () => {
           <h2 className="text-xl text-center mb-4" style={{ color: "#6147FF" }}>
             Pago de reserva
           </h2>
-          <div className="flex items-center justify-center mb-4 bg-[#EEEEEE] rounded-lg">
+          <div
+            className="flex items-center justify-center mb-4 bg-[#EEEEEE] rounded-lg cursor-pointer"
+            onClick={handleCardClick}
+          >
             <img
               src={visaLogo}
               alt="Visa"
@@ -23,23 +35,30 @@ const PaymentForm = () => {
               Tarjeta de Credito o Debito
             </span>
           </div>
-          <div className="space-y-4">
-            <input
-              type="text"
-              placeholder="numero de cuenta"
-              className="border p-2 rounded w-full"
-            />
-            <input
-              type="text"
-              placeholder="CVV"
-              className="border p-2 rounded w-full"
-            />
-            <input
-              type="text"
-              placeholder="fecha de vencimiento"
-              className="border p-2 rounded w-full"
-            />
-          </div>
+          <CSSTransition
+            in={showPaymentFields}
+            timeout={300}
+            classNames="fade"
+            unmountOnExit
+          >
+            <div className="space-y-4">
+              <input
+                type="text"
+                placeholder="numero de cuenta"
+                className="border p-2 rounded w-full"
+              />
+              <input
+                type="text"
+                placeholder="CVV"
+                className="border p-2 rounded w-full"
+              />
+              <input
+                type="text"
+                placeholder="fecha de vencimiento"
+                className="border p-2 rounded w-full"
+              />
+            </div>
+          </CSSTransition>
           <button className="bg-[#37F83F] text-white p-2 rounded w-full mt-4">
             Registrarse
           </button>

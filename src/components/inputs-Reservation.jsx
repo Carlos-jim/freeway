@@ -1,4 +1,5 @@
 import React from "react";
+import nacionalidadOptions from '../.json/nacionalidad.json'
 
 const InputsReservation = () => {
   return (
@@ -36,8 +37,11 @@ const InputsReservation = () => {
         />
         <select className="border p-2 rounded">
           <option>Nacionalidad</option>
-          <option>Argentino</option>
-          <option>Otro</option>
+          {nacionalidadOptions.nacionalidad.map((option) => (
+                  <option key={option.value} value={option.value}>
+                   {option.label}
+                  </option>
+                ))}
         </select>
         <select className="border p-2 rounded">
           <option>Género</option>
