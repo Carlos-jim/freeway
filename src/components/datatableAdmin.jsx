@@ -1,49 +1,49 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo, useCallback } from 'react';
 
 const data = [
-    {
-        vuelo: '9023948523849',
-        cedula: '131913456',
-        nombre: 'JOHN DOE',
-        tipo: 'TURISTA',
-        estado: 'SIN CONFIRMAR',
-      },
-      {
-        vuelo: '3475293478293',
-        cedula: '131913456',
-        nombre: 'JOHN DOE',
-        tipo: 'PRIMERA CLASE',
-        estado: 'CONFIRMADA',
-      },
-      {
-        vuelo: '38749283759123',
-        cedula: '131913456',
-        nombre: 'JOHN DOE',
-        tipo: 'CLASE EJECUTIVA',
-        estado: 'SIN CONFIRMAR',
-      },
-      {
-        vuelo: '642739571923823',
-        cedula: '131913456',
-        nombre: 'JOHN DOE',
-        tipo: 'CLASE EJECUTIVA',
-        estado: 'SIN CONFIRMAR',
-      },
-      {
-        vuelo: '643276582393892',
-        cedula: '131913456',
-        nombre: 'JOHN DOE',
-        tipo: 'PRIMERA CLASE',
-        estado: 'SIN CONFIRMAR',
-      },
-      {
-        vuelo: '7582347912837912',
-        cedula: '131913456',
-        nombre: 'JOHN DOE',
-        tipo: 'TURISTA',
-        estado: 'SIN CONFIRMAR',
-      },
-      // ...
+  {
+    vuelo: '9023948523849',
+    cedula: '131913456',
+    nombre: 'JOHN DOE',
+    tipo: 'TURISTA',
+    estado: 'SIN CONFIRMAR',
+  },
+  {
+    vuelo: '3475293478293',
+    cedula: '131913456',
+    nombre: 'JOHN DOE',
+    tipo: 'PRIMERA CLASE',
+    estado: 'CONFIRMADA',
+  },
+  {
+    vuelo: '38749283759123',
+    cedula: '131913456',
+    nombre: 'JOHN DOE',
+    tipo: 'CLASE EJECUTIVA',
+    estado: 'SIN CONFIRMAR',
+  },
+  {
+    vuelo: '642739571923823',
+    cedula: '131913456',
+    nombre: 'JOHN DOE',
+    tipo: 'CLASE EJECUTIVA',
+    estado: 'SIN CONFIRMAR',
+  },
+  {
+    vuelo: '643276582393892',
+    cedula: '131913456',
+    nombre: 'JOHN DOE',
+    tipo: 'PRIMERA CLASE',
+    estado: 'SIN CONFIRMAR',
+  },
+  {
+    vuelo: '7582347912837912',
+    cedula: '131913456',
+    nombre: 'JOHN DOE',
+    tipo: 'TURISTA',
+    estado: 'SIN CONFIRMAR',
+  },
+  // Agrega más datos aquí si es necesario
 ];
 
 const TableAdmin = ({ filters }) => {
@@ -55,47 +55,37 @@ const TableAdmin = ({ filters }) => {
     const applyFilters = () => {
       let filtered = data;
 
-      if (filters.vuelo) {
-        filtered = filtered.filter(item => item.vuelo.includes(filters.vuelo));
-      }
-      if (filters.cedula) {
-        filtered = filtered.filter(item => item.cedula.includes(filters.cedula));
-      }
-      if (filters.nombre) {
-        filtered = filtered.filter(item => item.nombre.includes(filters.nombre));
-      }
-      if (filters.tipo) {
-        filtered = filtered.filter(item => item.tipo.includes(filters.tipo));
-      }
-      if (filters.estado) {
-        filtered = filtered.filter(item => item.estado.includes(filters.estado));
-      }
+      Object.entries(filters).forEach(([key, value]) => {
+        if (value) {
+          filtered = filtered.filter(item => item[key]?.includes(value));
+        }
+      });
 
       setFilteredData(filtered);
-      setCurrentPage(1); 
+      setCurrentPage(1); // Reset to the first page when filters change
     };
 
     applyFilters();
   }, [filters]);
 
-  const indexOfLastRow = currentPage * rowsPerPage;
-  const indexOfFirstRow = indexOfLastRow - rowsPerPage;
-  const currentRows = filteredData.slice(indexOfFirstRow, indexOfLastRow);
+  const indexOfLastRow = useMemo(() => currentPage * rowsPerPage, [currentPage, rowsPerPage]);
+  const indexOfFirstRow = useMemo(() => indexOfLastRow - rowsPerPage, [indexOfLastRow, rowsPerPage]);
+  const currentRows = useMemo(() => filteredData.slice(indexOfFirstRow, indexOfLastRow), [filteredData, indexOfFirstRow, indexOfLastRow]);
 
-  const totalPages = Math.ceil(filteredData.length / rowsPerPage);
+  const totalPages = useMemo(() => Math.ceil(filteredData.length / rowsPerPage), [filteredData.length, rowsPerPage]);
 
-  const handleNextPage = () => {
+  const handleNextPage = useCallback(() => {
     if (currentPage < totalPages) setCurrentPage(currentPage + 1);
-  };
+  }, [currentPage, totalPages]);
 
-  const handlePreviousPage = () => {
+  const handlePreviousPage = useCallback(() => {
     if (currentPage > 1) setCurrentPage(currentPage - 1);
-  };
+  }, [currentPage]);
 
-  const handleRowsPerPageChange = (e) => {
+  const handleRowsPerPageChange = useCallback((e) => {
     setRowsPerPage(Number(e.target.value));
     setCurrentPage(1);
-  };
+  }, []);
 
   return (
     <div className='p-10'>
@@ -120,7 +110,7 @@ const TableAdmin = ({ filters }) => {
             onClick={handlePreviousPage}
             disabled={currentPage === 1}
             className="hover:bg-purple-700 text-white font-bold py-1 px-2 rounded disabled:opacity-50"
-            style={{background: "#6147FF"}}
+            style={{ background: "#6147FF" }}
           >
             Anterior
           </button>
@@ -131,7 +121,7 @@ const TableAdmin = ({ filters }) => {
             onClick={handleNextPage}
             disabled={currentPage === totalPages}
             className="hover:bg-purple-700 text-white font-bold py-1 px-2 rounded disabled:opacity-50"
-            style={{background: "#6147FF"}}
+            style={{ background: "#6147FF" }}
           >
             Siguiente
           </button>
@@ -140,7 +130,7 @@ const TableAdmin = ({ filters }) => {
       <div className="overflow-x-auto">
         <table className="min-w-full bg-white border border-gray-200">
           <thead>
-            <tr className="text-white" style={{background: "#6147FF"}}>
+            <tr className="text-white" style={{ background: "#6147FF" }}>
               <th className="py-2 px-4 border-b">VUELO</th>
               <th className="py-2 px-4 border-b">CÉDULA</th>
               <th className="py-2 px-4 border-b">NOMBRE Y APELLIDO</th>
@@ -160,7 +150,7 @@ const TableAdmin = ({ filters }) => {
                   {reservation.estado}
                 </td>
                 <td className="py-2 px-4 border-b text-center">
-                  <button className="hover:bg-purple-700 text-white font-bold py-1 px-2 rounded" style={{background: "#6147FF"}}>
+                  <button className="hover:bg-purple-700 text-white font-bold py-1 px-2 rounded" style={{ background: "#6147FF" }}>
                     <i className="fas fa-check"></i>
                   </button>
                 </td>
@@ -174,7 +164,7 @@ const TableAdmin = ({ filters }) => {
           onClick={handlePreviousPage}
           disabled={currentPage === 1}
           className="hover:bg-purple-700 text-white font-bold py-1 px-2 rounded disabled:opacity-50"
-          style={{background: "#6147FF"}}
+          style={{ background: "#6147FF" }}
         >
           Anterior
         </button>
@@ -185,7 +175,7 @@ const TableAdmin = ({ filters }) => {
           onClick={handleNextPage}
           disabled={currentPage === totalPages}
           className="hover:bg-purple-700 text-white font-bold py-1 px-2 rounded disabled:opacity-50"
-          style={{background: "#6147FF"}}
+          style={{ background: "#6147FF" }}
         >
           Siguiente
         </button>

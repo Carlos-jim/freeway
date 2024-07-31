@@ -57,13 +57,13 @@ const CheckInForm = () => {
             </div>
             <div className="flex flex-col items-center justify-between">
               <button
-                className="bg-purple-500 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                className="bg-[#37F83F] hover:bg-[#00BB07] text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
                 type="button"
               >
                 COMENZAR CHECK-IN
               </button>
               <button
-                className="bg-gray-500 hover:bg-gray-700 mt-7 text-white font-bold py-2 px-7 rounded focus:outline-none focus:shadow-outline"
+                className="bg-[#FF0000] hover:bg-[#DA0808] mt-7 text-white font-bold py-2 px-7 rounded focus:outline-none focus:shadow-outline"
                 type="button"
               >
                 ANULAR CHECK-IN

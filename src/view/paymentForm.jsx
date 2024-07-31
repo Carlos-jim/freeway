@@ -15,7 +15,7 @@ const PaymentForm = () => {
     <div>
       <Navbar />
       <div className="min-h-screen flex items-center justify-center">
-        <div className="bg-white p-8 rounded-lg w-full max-w-sm">
+        <div className="bg-white shadow-md p-8 rounded-lg w-full max-w-sm">
           <h1 className="text-3xl font-bold text-center text-transparent bg-clip-text bg-[#6147FF] mb-6">
             Freeway Airlines
           </h1>

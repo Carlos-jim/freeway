@@ -66,7 +66,7 @@ const InputsReservation = () => {
         <select className="border p-2 rounded">
           <option>Método de Pago</option>
           <option>Tarjeta de Crédito</option>
-          <option>PayPal</option>
+          <option>Efectivo</option>
         </select>
       </div>
       <div className="flex justify-center mt-4">

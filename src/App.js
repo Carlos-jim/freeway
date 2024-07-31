@@ -17,8 +17,8 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/pagos" element={<PaymentForm />} />
           <Route path="/registrar-vuelo" element={<FlightRegistration />} />
-          <Route path="/reservacion" element={<ReservationTable />} />
-          <Route path="/busqueda-vuelos" element={<FlightReservation />} />
+          <Route path="/reservaciones" element={<ReservationTable />} />
+          <Route path="/reservar-vuelos" element={<FlightReservation />} />
           <Route path="/chequeo" element={<CheckInForm />} />
           <Route path="/itinerario" element={<ItineraryTable />} />
 
