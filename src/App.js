@@ -8,6 +8,7 @@ import FlightReservation from './view/FligthReservation';
 import PaymentForm from './view/paymentForm';
 import CheckInForm from './view/checkin';
 import ItineraryTable from './view/Itinerario';
+import CardReservation from './view/tarjetasReservas'
 function App() {
   return (
     <Router>
@@ -20,6 +21,7 @@ function App() {
           <Route path="/reservaciones" element={<ReservationTable />} />
           <Route path="/reservar-vuelos" element={<FlightReservation />} />
           <Route path="/chequeo" element={<CheckInForm />} />
+          <Route path="/nose" element={<CardReservation />} />
           <Route path="/itinerario" element={<ItineraryTable />} />
 
         </Routes>
