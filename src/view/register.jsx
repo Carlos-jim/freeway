@@ -19,14 +19,14 @@ const Login = () => {
               color: "#6147FF",
             }}
           >
-            Freeway Airlines
+            Registrate
           </h1>
           <form>
             <h2
               className="block text-gray-800 text-sm font-bold mb-2 text-center mb-9"
               style={{ color: "#6147FF" }}
             >
-              REGISTRATE
+              FreeWay Airlines
             </h2>
             <InputAuth />
             <div className="flex items-center justify-center">
