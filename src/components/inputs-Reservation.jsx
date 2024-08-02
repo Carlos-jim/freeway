@@ -22,7 +22,7 @@ const InputsReservation = () => {
         />
         <select className="border p-2 rounded">
           <option>Tipo de Documento</option>
-          <option>DNI</option>
+          <option>Cedula de identidad</option>
           <option>Pasaporte</option>
         </select>
         <input
@@ -36,7 +36,7 @@ const InputsReservation = () => {
           className="border p-2 rounded"
         />
         <select className="border p-2 rounded">
-          <option>Nacionalidad</option>
+          <option>Pais de origen</option>
           {nacionalidadOptions.nacionalidad.map((option) => (
                   <option key={option.value} value={option.value}>
                    {option.label}
@@ -63,11 +63,7 @@ const InputsReservation = () => {
           placeholder="Teléfono"
           className="border p-2 rounded"
         />
-        <select className="border p-2 rounded">
-          <option>Método de Pago</option>
-          <option>Tarjeta de Crédito</option>
-          <option>Efectivo</option>
-        </select>
+
       </div>
       <div className="flex justify-center mt-4">
         <button className="bg-[#37F83F] text-white p-2 rounded-lg w-32">
