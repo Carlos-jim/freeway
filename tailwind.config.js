@@ -5,6 +5,8 @@ module.exports = {
     extend: {
       colors: {
         'hover-link': '#6147FF',
+        'success-color-btn': '#40E146',
+        'hover-success-color-btn': '#00BB07',
       },
     },
   },

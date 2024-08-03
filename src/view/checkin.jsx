@@ -49,7 +49,7 @@ const CheckInForm = () => {
             </div>
             <div className="flex flex-col items-center justify-between">
               <button
-                className="bg-[#37F83F] hover:bg-[#00BB07] text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                className="bg-success-color-btn hover:bg-hover-success-color-btn text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
                 type="button"
               >
                 COMENZAR CHECK-IN

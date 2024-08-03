@@ -6,7 +6,7 @@ const InputsReservation = () => {
     <div>
       <div className="grid grid-cols-2 gap-4">
         
-        <div className="relative">
+        <div className="relative mt-4">
           <input
             type="text"
             id="nombre"
@@ -21,7 +21,7 @@ const InputsReservation = () => {
           </label>
         </div>
         
-        <div className="relative">
+        <div className="relative mt-4">
           <input
             type="text"
             id="apellido"
@@ -36,7 +36,7 @@ const InputsReservation = () => {
           </label>
         </div>
         
-        <div className="relative">
+        <div className="relative mt-4">
           <input
             type="date"
             id="fechaNacimiento"
@@ -51,7 +51,7 @@ const InputsReservation = () => {
           </label>
         </div>
         
-        <div className="relative">
+        <div className="relative mt-4">
           <select
             id="tipoDocumento"
             className="peer border p-2 rounded w-full bg-transparent"
@@ -69,7 +69,7 @@ const InputsReservation = () => {
           </label>
         </div>
         
-        <div className="relative">
+        <div className="relative mt-4">
           <input
             type="text"
             id="numeroDocumento"
@@ -84,7 +84,7 @@ const InputsReservation = () => {
           </label>
         </div>
         
-        <div className="relative">
+        <div className="relative mt-4">
           <input
             type="date"
             id="fechaVencimiento"
@@ -99,7 +99,7 @@ const InputsReservation = () => {
           </label>
         </div>
         
-        <div className="relative">
+        <div className="relative mt-4">
           <select
             id="paisOrigen"
             className="peer border p-2 rounded w-full bg-transparent"
@@ -120,7 +120,7 @@ const InputsReservation = () => {
           </label>
         </div>
         
-        <div className="relative">
+        <div className="relative mt-4">
           <select
             id="genero"
             className="peer border p-2 rounded w-full bg-transparent"
@@ -138,7 +138,7 @@ const InputsReservation = () => {
           </label>
         </div>
         
-        <div className="relative">
+        <div className="relative mt-4">
           <input
             type="email"
             id="correo"
@@ -153,7 +153,7 @@ const InputsReservation = () => {
           </label>
         </div>
         
-        <div className="relative">
+        <div className="relative mt-4">
           <input
             type="text"
             id="telefono"
@@ -170,7 +170,7 @@ const InputsReservation = () => {
       </div>
       
       <div className="flex justify-center mt-4">
-        <button className="bg-[#37F83F] text-white p-2 rounded-lg w-32">
+        <button className="bg-success-color-btn hover:bg-hover-success-color-btn text-white p-2 rounded-lg w-32">
           Guardar
         </button>
       </div>

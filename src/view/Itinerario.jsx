@@ -115,13 +115,13 @@ const ItineraryTable = () => {
                   <td className="py-3 px-4">{item.tipo}</td>
                   <td className="py-3 px-4">{item.precio}</td>
                   <td className="py-3 px-4 text-center">
-                    <button className="bg-[#37F83F] text-white rounded-mt p-2 hover:bg-[#00BB07] focus:outline-none focus:shadow-outline">
+                    <button className="bg-success-color-btn p-2 pr-5 pl-5 rounded-lg hover:hover-success-color-btn text-white rounded-mt p-2 hover:bg-[#00BB07] focus:outline-none focus:shadow-outline">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         fill="none"
                         viewBox="0 0 24 24"
                         stroke="currentColor"
-                        className="w-6 h-6"
+                        className="w-5 h-5"
                       >
                         <path
                           strokeLinecap="round"
