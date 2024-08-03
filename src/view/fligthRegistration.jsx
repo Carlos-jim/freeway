@@ -23,7 +23,7 @@ const FlightRegistration = () => {
               CÓDIGO DE VUELO
             </label>
             <input
-              className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+              className="shadow border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
               id="codigoVuelo"
               type="text"
               placeholder="Código de vuelo"
@@ -38,7 +38,7 @@ const FlightRegistration = () => {
                 ORIGEN
               </label>
               <input
-                className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                className="shadow border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                 id="origen"
                 type="text"
                 placeholder="Origen"
@@ -52,7 +52,7 @@ const FlightRegistration = () => {
                 DESTINO
               </label>
               <input
-                className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                className="shadow border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                 id="destino"
                 type="text"
                 placeholder="Destino"
@@ -68,7 +68,7 @@ const FlightRegistration = () => {
                 FECHA DE DESPEGUE
               </label>
               <input
-                className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                className="shadow border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                 id="fechaDespegue"
                 type="date"
                 placeholder="Fecha de despegue"
@@ -82,7 +82,7 @@ const FlightRegistration = () => {
                 FECHA DE ARRIVO
               </label>
               <input
-                className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                className="shadow border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                 id="fechaArrivo"
                 type="date"
                 placeholder="Fecha de arrivo"
@@ -98,7 +98,7 @@ const FlightRegistration = () => {
                 CLASE
               </label>
               <select
-                className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                className="shadow border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                 id="clase"
               >
                 {options.clasevuelo.map((option) => (
@@ -116,7 +116,7 @@ const FlightRegistration = () => {
                 TIPO
               </label>
               <select
-                className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                className="shadow border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                 id="tipo"
               >
                 {options.tipovuelo.map((option) => (

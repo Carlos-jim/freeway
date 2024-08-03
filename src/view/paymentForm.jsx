@@ -59,8 +59,8 @@ const PaymentForm = () => {
               />
             </div>
           </CSSTransition>
-          <button className="bg-[#37F83F] text-white p-2 rounded w-full mt-4">
-            Registrarse
+          <button className="bg-success-color-btn hover:bg-hover-success-color-btn text-white p-2 rounded w-full mt-4">
+            PAGAR
           </button>
           <div className="text-center mt-4 text-gray-700">
             <span>tambien puedes cancelar con</span>
