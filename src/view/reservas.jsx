@@ -13,9 +13,13 @@ const ReservationTable = () => {
 
   const handleInputChange = (e) => {
     const { id, value } = e.target;
+
+    // Convertir a mayúsculas solo el input de "nombre"
+    const transformedValue = id === "nombre" ? value.toUpperCase() : value;
+
     setFilters({
       ...filters,
-      [id]: value,
+      [id]: transformedValue,
     });
   };
 
@@ -34,7 +38,7 @@ const ReservationTable = () => {
             <div className="flex flex-wrap -mx-2 mb-4">
               <div className="w-full md:w-1/5 px-2 mb-4 md:mb-0">
                 <input
-                  className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                  className="shadow border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                   id="vuelo"
                   type="text"
                   placeholder="CÓDIGO DE VUELO"
@@ -44,7 +48,7 @@ const ReservationTable = () => {
               </div>
               <div className="w-full md:w-1/5 px-2 mb-4 md:mb-0">
                 <input
-                  className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                  className="shadow border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                   id="cedula"
                   type="text"
                   placeholder="CÉDULA"
@@ -54,7 +58,7 @@ const ReservationTable = () => {
               </div>
               <div className="w-full md:w-1/5 px-2 mb-4 md:mb-0">
                 <input
-                  className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                  className="shadow  border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                   id="nombre"
                   type="text"
                   placeholder="NOMBRE Y APELLIDO"
@@ -73,14 +77,16 @@ const ReservationTable = () => {
                 />
               </div>
               <div className="w-full md:w-1/5 px-2">
-                <input
-                  className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                <select
+                  className="shadow border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                   id="estado"
-                  type="text"
-                  placeholder="ESTADO DE LA RESERVA"
                   value={filters.estado}
                   onChange={handleInputChange}
-                />
+                >
+                  <option value="">Todos los estados</option>
+                  <option value="CONFIRMADA">CONFIRMADA</option>
+                  <option value="SIN CONFIRMAR">SIN CONFIRMAR</option>
+                </select>
               </div>
             </div>
           </form>

@@ -7,6 +7,7 @@ const data = [
     nombre: 'JOHN DOE',
     tipo: 'TURISTA',
     estado: 'SIN CONFIRMAR',
+    confirmado: false, // Nuevo estado para gestionar la confirmación
   },
   {
     vuelo: '3475293478293',
@@ -14,36 +15,9 @@ const data = [
     nombre: 'JOHN DOE',
     tipo: 'PRIMERA CLASE',
     estado: 'CONFIRMADA',
+    confirmado: true, // Nuevo estado para gestionar la confirmación
   },
-  {
-    vuelo: '38749283759123',
-    cedula: '131913456',
-    nombre: 'JOHN DOE',
-    tipo: 'CLASE EJECUTIVA',
-    estado: 'SIN CONFIRMAR',
-  },
-  {
-    vuelo: '642739571923823',
-    cedula: '131913456',
-    nombre: 'JOHN DOE',
-    tipo: 'CLASE EJECUTIVA',
-    estado: 'SIN CONFIRMAR',
-  },
-  {
-    vuelo: '643276582393892',
-    cedula: '131913456',
-    nombre: 'JOHN DOE',
-    tipo: 'PRIMERA CLASE',
-    estado: 'SIN CONFIRMAR',
-  },
-  {
-    vuelo: '7582347912837912',
-    cedula: '131913456',
-    nombre: 'JOHN DOE',
-    tipo: 'TURISTA',
-    estado: 'SIN CONFIRMAR',
-  },
-  // Agrega más datos aquí si es necesario
+  // ... resto de los datos
 ];
 
 const TableAdmin = ({ filters }) => {
@@ -86,6 +60,14 @@ const TableAdmin = ({ filters }) => {
     setRowsPerPage(Number(e.target.value));
     setCurrentPage(1);
   }, []);
+
+  // Función para manejar el cambio de estado al hacer clic en el botón
+  const handleConfirmClick = (index) => {
+    const newData = [...filteredData];
+    newData[index].confirmado = !newData[index].confirmado;
+    newData[index].estado = newData[index].confirmado ? 'CONFIRMADA' : 'NO CONFIRMADA'; // Cambia el estado basado en la confirmación
+    setFilteredData(newData);
+  };
 
   return (
     <div className='p-10'>
@@ -146,12 +128,45 @@ const TableAdmin = ({ filters }) => {
                 <td className="py-2 px-4 border-b">{reservation.cedula}</td>
                 <td className="py-2 px-4 border-b">{reservation.nombre}</td>
                 <td className="py-2 px-4 border-b">{reservation.tipo}</td>
-                <td className={`py-2 px-4 border-b ${reservation.estado === 'CONFIRMADA' ? 'text-green-500' : 'text-red-500'}`}>
+                <td className={`py-2 px-4 border-b ${reservation.confirmado ? 'text-green-500' : 'text-red-500'}`}>
                   {reservation.estado}
                 </td>
                 <td className="py-2 px-4 border-b text-center">
-                  <button className="hover:bg-purple-700 text-white font-bold py-1 px-2 rounded" style={{ background: "#6147FF" }}>
-                    <i className="fas fa-check"></i>
+                  <button
+                    onClick={() => handleConfirmClick(index)}
+                    className={`${reservation.confirmado ? 'bg-red-600 hover:bg-red-700' : 'bg-success-color-btn hover:bg-hover-success-color-btn'} text-white font-bold py-1 px-2 rounded`}
+                  >
+                    {reservation.confirmado ? (
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                        className="w-5 h-5"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth="2"
+                          d="M6 18L18 6M6 6l12 12"
+                        />
+                      </svg>
+                    ) : (
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                        className="w-5 h-5"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth="2"
+                          d="M5 13l4 4L19 7"
+                        />
+                      </svg>
+                    )}
                   </button>
                 </td>
               </tr>
