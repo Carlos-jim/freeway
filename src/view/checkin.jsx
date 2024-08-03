@@ -16,11 +16,11 @@ const CheckInForm = () => {
               <span className="text-sm mt-2">CHECK-IN</span>
             </div>
             <div className="flex flex-col items-center mb-4 sm:mb-0">
-              <div className="bg-gray-200 text-gray-500 rounded-full w-8 h-8 flex items-center justify-center">3</div>
+              <div className="bg-gray-200 text-gray-500 rounded-full w-8 h-8 flex items-center justify-center">2</div>
               <span className="text-sm mt-2">DATOS PASAJEROS</span>
             </div>
             <div className="flex flex-col items-center">
-              <div className="bg-gray-200 text-gray-500 rounded-full w-8 h-8 flex items-center justify-center">5</div>
+              <div className="bg-gray-200 text-gray-500 rounded-full w-8 h-8 flex items-center justify-center">3</div>
               <span className="text-sm mt-2">TARJETA DE EMBARQUE</span>
             </div>
           </div>
