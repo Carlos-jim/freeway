@@ -23,15 +23,7 @@ const Navbar = () => {
               location.pathname === "/inicio" ? "text-hover-link" : "text-gray-700"
             } hover:text-hover-link`}
           >
-            Inicio
-          </Link>
-          <Link
-            to="/reservar-vuelo"
-            className={`${
-              location.pathname === "/reservar-vuelo" ? "text-hover-link" : "text-gray-700"
-            } hover:text-hover-link`}
-          >
-            Reservar
+            🏠 Inicio
           </Link>
           <Link
             to="/itinerario"
@@ -39,7 +31,7 @@ const Navbar = () => {
               location.pathname === "/itinerario" ? "text-hover-link" : "text-gray-700"
             } hover:text-hover-link`}
           >
-            Itinerario
+            🗺️ Itinerario
           </Link>
           <Link
             to="/chequeo"
@@ -47,7 +39,7 @@ const Navbar = () => {
               location.pathname === "/chequeo" ? "text-hover-link" : "text-gray-700"
             } hover:text-hover-link`}
           >
-            Chequeo
+            👤 Chequeo
           </Link>
           <Link
             to="/ayuda"
@@ -55,7 +47,7 @@ const Navbar = () => {
               location.pathname === "/ayuda" ? "text-hover-link" : "text-gray-700"
             } hover:text-hover-link`}
           >
-            Ayuda
+           ℹ️ Ayuda
           </Link>
         </div>
         <div className="md:hidden">
@@ -88,7 +80,7 @@ const Navbar = () => {
               location.pathname === "/inicio" ? "text-hover-link" : "text-gray-700"
             } block hover:text-hover-link`}
           >
-            Inicio
+           🏠 Inicio
           </Link>
           <Link
             to="/reservar-vuelo"
@@ -112,7 +104,7 @@ const Navbar = () => {
               location.pathname === "/chequeo" ? "text-hover-link" : "text-gray-700"
             } block hover:text-hover-link`}
           >
-            Chequeo
+            👤 Chequeo
           </Link>
           <Link
             to="/ayuda"
@@ -120,7 +112,7 @@ const Navbar = () => {
               location.pathname === "/ayuda" ? "text-hover-link" : "text-gray-700"
             } block hover:text-hover-link`}
           >
-            Ayuda
+           ℹ️ Ayuda
           </Link>
         </div>
       )}
