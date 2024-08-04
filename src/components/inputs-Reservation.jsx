@@ -1,9 +1,11 @@
 import React from "react";
 import nacionalidadOptions from '../.json/nacionalidad.json';
+import Tooltips from "./tooltip";
 
 const InputsReservation = () => {
   return (
     <div>
+      <Tooltips content="Ingrese los datos en los campos para poder reservar su vuelo" />
       <div className="grid grid-cols-2 gap-4">
         
         <div className="relative mt-4">
@@ -17,7 +19,7 @@ const InputsReservation = () => {
             htmlFor="nombre"
             className="absolute text-gray-500 duration-300 transform -translate-y-6 scale-75 top-1 left-3 origin-[0] peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
           >
-            Nombre
+           Nombre
           </label>
         </div>
         
@@ -134,7 +136,7 @@ const InputsReservation = () => {
             htmlFor="genero"
             className="absolute text-gray-500 duration-300 transform -translate-y-6 scale-75 top-1 left-3 origin-[0] peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
           >
-            Género
+             Género
           </label>
         </div>
         
@@ -164,7 +166,7 @@ const InputsReservation = () => {
             htmlFor="telefono"
             className="absolute text-gray-500 duration-300 transform -translate-y-6 scale-75 top-1 left-3 origin-[0] peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
           >
-            Teléfono
+             Teléfono
           </label>
         </div>
       </div>

@@ -41,14 +41,6 @@ const Navbar = () => {
           >
             👤 Chequeo
           </Link>
-          <Link
-            to="/ayuda"
-            className={`${
-              location.pathname === "/ayuda" ? "text-hover-link" : "text-gray-700"
-            } hover:text-hover-link`}
-          >
-           ℹ️ Ayuda
-          </Link>
         </div>
         <div className="md:hidden">
           <button
@@ -105,14 +97,6 @@ const Navbar = () => {
             } block hover:text-hover-link`}
           >
             👤 Chequeo
-          </Link>
-          <Link
-            to="/ayuda"
-            className={`${
-              location.pathname === "/ayuda" ? "text-hover-link" : "text-gray-700"
-            } block hover:text-hover-link`}
-          >
-           ℹ️ Ayuda
           </Link>
         </div>
       )}

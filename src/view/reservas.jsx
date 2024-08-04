@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import TableAdmin from "../components/datatableAdmin";
 import Navbar from "../components/navbarUser";
+import Tooltips from "../components/tooltip";
 
 const ReservationTable = () => {
   const [filters, setFilters] = useState({
@@ -35,6 +36,7 @@ const ReservationTable = () => {
             RESERVAS
           </h1>
           <form className="mb-8 p-10">
+            <Tooltips content="Puede filtrar los vuelos, con los filtros, y confirmar reserva o desconfirmar" />
             <div className="flex flex-wrap -mx-2 mb-4">
               <div className="w-full md:w-1/5 px-2 mb-4 md:mb-0">
                 <input

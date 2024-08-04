@@ -2,6 +2,7 @@ import React from "react";
 import InputsReservation from "../components/inputs-Reservation";
 import Navbar from "../components/navbarUser";
 import BackgroundImgUser from "../components/backgroundImgUser";
+import Tooltips from "../components/tooltip";
 
 const FlightReservation = () => {
   return (

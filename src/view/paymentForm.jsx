@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import visaLogo from "../public/visa.png";
 import Navbar from "../components/navbarUser";
-import { CSSTransition } from 'react-transition-group';
-import '../public/paymentForm.css'; // Asegúrate de tener esta hoja de estilos
+import { CSSTransition } from "react-transition-group";
+import "../public/paymentForm.css"; // Asegúrate de tener esta hoja de estilos
+import Tooltips from "../components/tooltip";
 
 const PaymentForm = () => {
   const [showPaymentFields, setShowPaymentFields] = useState(false);
@@ -16,6 +17,10 @@ const PaymentForm = () => {
       <Navbar />
       <div className="min-h-screen flex items-center justify-center">
         <div className="bg-white shadow-md p-8 rounded-lg w-full max-w-sm">
+          <Tooltips
+            content="Seleccione su metodo a pagar, tarjeta de credito ingrese sus datos bancarios,
+              si elije efectivo el monto debe ser pagado en taquilla"
+          />
           <h1 className="text-3xl font-bold text-center text-transparent bg-clip-text bg-[#6147FF] mb-6">
             Freeway Airlines
           </h1>
