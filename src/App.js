@@ -11,6 +11,7 @@ import ItineraryTable from './view/Itinerario';
 import CardReservation from './view/tarjetasReservas'
 import BoardingPass from './view/tarjetaEmbarque';
 import Home from './view/home';
+import PersonData from './view/personData';
 function App() {
   return (
     <Router>
@@ -27,6 +28,8 @@ function App() {
           <Route path="/chequeo" element={<CheckInForm />} />
           <Route path="/nose" element={<CardReservation />} />
           <Route path="/itinerario" element={<ItineraryTable />} />
+          <Route path="/chequeo/datos-personales" element={<PersonData />} />
+
         </Routes>
       </div>
     </Router>
