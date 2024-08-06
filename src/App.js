@@ -9,6 +9,7 @@ import PaymentForm from './view/paymentForm';
 import CheckInForm from './view/checkin';
 import ItineraryTable from './view/Itinerario';
 import CardReservation from './view/tarjetasReservas'
+import BoardingPass from './view/tarjetaEmbarque';
 import Home from './view/home';
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
       <div className="App">
         <Routes>
           <Route path="/" element={<Register />} />
+          <Route path="/embarque" element={<BoardingPass />} />
           <Route path="/inicio" element={<Home />} />
           <Route path="/login" element={<Login />} />
           <Route path="/pagos" element={<PaymentForm />} />

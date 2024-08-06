@@ -1,12 +1,13 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 import visaLogo from "../public/visa.png";
 import Navbar from "../components/navbarUser";
 import Tooltips from "../components/tooltip";
 import "../public/paymentForm.css"; // Asegúrate de tener esta hoja de estilos
 import cash from "../public/dollar.png";
+
 const PaymentForm = () => {
   const [showPaymentFields, setShowPaymentFields] = useState(false);
   const [formData, setFormData] = useState({
@@ -19,6 +20,8 @@ const PaymentForm = () => {
     cvv: "",
     expiryDate: "",
   });
+
+  const navigate = useNavigate();
 
   const handleCardClick = () => {
     setShowPaymentFields(!showPaymentFields);
@@ -64,7 +67,8 @@ const PaymentForm = () => {
 
     if (valid) {
       console.log("Formulario enviado", formData);
-      // Aquí puedes agregar la lógica para procesar el pago
+      // Redirigir a la página de embarque si la validación es exitosa
+      navigate("/embarque");
     }
   };
 
@@ -154,19 +158,19 @@ const PaymentForm = () => {
                     </p>
                   )}
                 </div>
-                <button
-                  type="submit"
-                  className="bg-success-color-btn hover:bg-hover-success-color-btn text-white p-2 rounded w-full mt-4"
-                >
-                  PAGAR
-                </button>
+                  <button
+                    type="submit"
+                    className="bg-success-color-btn hover:bg-hover-success-color-btn text-white p-2 rounded w-full mt-4"
+                  >
+                    PAGAR
+                  </button>
               </motion.form>
             )}
           </AnimatePresence>
           <div className="text-center mt-4 text-gray-700">
             <span>También puedes cancelar con</span>
             <div className="border-t border-gray-300 mt-2"></div>
-            <Link to="/inicio">
+            <Link to="/embarque">
               <div className="flex items-center justify-center mb-4 bg-[#EEEEEE] rounded-lg cursor-pointer mt-4">
                 <img
                   src={cash}
@@ -174,7 +178,7 @@ const PaymentForm = () => {
                   className="w-10 h-10 object-contain"
                 />
                 <span className="text-gray-700 ml-2">
-                  Tarjeta de Credito o Debito
+                  Efectivo
                 </span>
               </div>
             </Link>
