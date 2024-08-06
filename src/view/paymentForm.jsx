@@ -165,7 +165,7 @@ const PaymentForm = () => {
             <span>También puedes cancelar con</span>
             <div className="border-t border-gray-300 mt-2"></div>
             <button className="text-gray-700 mt-2 text-center w-full h-8 bg-[#EEEEEE] rounded-lg">
-              Efectivo
+              Efectivo 💵
             </button>
           </div>
         </motion.div>
