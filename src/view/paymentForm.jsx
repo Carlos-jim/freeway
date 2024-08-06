@@ -1,21 +1,23 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { Link } from "react-router-dom";
+
 import visaLogo from "../public/visa.png";
 import Navbar from "../components/navbarUser";
 import Tooltips from "../components/tooltip";
 import "../public/paymentForm.css"; // Asegúrate de tener esta hoja de estilos
-
+import cash from "../public/dollar.png";
 const PaymentForm = () => {
   const [showPaymentFields, setShowPaymentFields] = useState(false);
   const [formData, setFormData] = useState({
-    accountNumber: '',
-    cvv: '',
-    expiryDate: ''
+    accountNumber: "",
+    cvv: "",
+    expiryDate: "",
   });
   const [errors, setErrors] = useState({
-    accountNumber: '',
-    cvv: '',
-    expiryDate: ''
+    accountNumber: "",
+    cvv: "",
+    expiryDate: "",
   });
 
   const handleCardClick = () => {
@@ -26,7 +28,7 @@ const PaymentForm = () => {
     const { name, value } = e.target;
     setFormData({
       ...formData,
-      [name]: value
+      [name]: value,
     });
   };
 
@@ -34,33 +36,34 @@ const PaymentForm = () => {
     e.preventDefault();
     let valid = true;
     const newErrors = {
-      accountNumber: '',
-      cvv: '',
-      expiryDate: ''
+      accountNumber: "",
+      cvv: "",
+      expiryDate: "",
     };
 
     // Validar número de cuenta (asumiendo 16 dígitos)
     if (!/^\d{16}$/.test(formData.accountNumber)) {
-      newErrors.accountNumber = 'El número de cuenta debe tener 16 dígitos';
+      newErrors.accountNumber = "El número de cuenta debe tener 16 dígitos";
       valid = false;
     }
 
     // Validar CVV (3 dígitos)
     if (!/^\d{3}$/.test(formData.cvv)) {
-      newErrors.cvv = 'El CVV debe tener 3 dígitos';
+      newErrors.cvv = "El CVV debe tener 3 dígitos";
       valid = false;
     }
 
     // Validar fecha de vencimiento (formato mm/yy)
     if (!/^(0[1-9]|1[0-2])\/\d{2}$/.test(formData.expiryDate)) {
-      newErrors.expiryDate = 'La fecha de vencimiento debe estar en formato mm/yy';
+      newErrors.expiryDate =
+        "La fecha de vencimiento debe estar en formato mm/yy";
       valid = false;
     }
 
     setErrors(newErrors);
 
     if (valid) {
-      console.log('Formulario enviado', formData);
+      console.log("Formulario enviado", formData);
       // Aquí puedes agregar la lógica para procesar el pago
     }
   };
@@ -69,14 +72,13 @@ const PaymentForm = () => {
     <div>
       <Navbar />
       <div className="min-h-screen flex items-center justify-center">
-        <motion.div 
-        initial={{ opacity: 0, y: -50 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5, delay: 0.5 }}
-        className="bg-white shadow-md p-8 rounded-lg w-full max-w-sm">
-          <Tooltips
-            content="Seleccione su método de pago. Si elige tarjeta de crédito, ingrese sus datos bancarios. Si elige efectivo, el monto debe ser pagado en taquilla."
-          />
+        <motion.div
+          initial={{ opacity: 0, y: -50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.5 }}
+          className="bg-white shadow-md p-8 rounded-lg w-full max-w-sm"
+        >
+          <Tooltips content="Seleccione su método de pago. Si elige tarjeta de crédito, ingrese sus datos bancarios. Si elige efectivo, el monto debe ser pagado en taquilla." />
           <h1 className="text-3xl font-bold text-center text-transparent bg-clip-text bg-[#6147FF] mb-6">
             Freeway Airlines
           </h1>
@@ -164,9 +166,18 @@ const PaymentForm = () => {
           <div className="text-center mt-4 text-gray-700">
             <span>También puedes cancelar con</span>
             <div className="border-t border-gray-300 mt-2"></div>
-            <button className="text-gray-700 mt-2 text-center w-full h-8 bg-[#EEEEEE] rounded-lg">
-              Efectivo 💵
-            </button>
+            <Link to="/inicio">
+              <div className="flex items-center justify-center mb-4 bg-[#EEEEEE] rounded-lg cursor-pointer mt-4">
+                <img
+                  src={cash}
+                  alt="Visa"
+                  className="w-10 h-10 object-contain"
+                />
+                <span className="text-gray-700 ml-2">
+                  Tarjeta de Credito o Debito
+                </span>
+              </div>
+            </Link>
           </div>
         </motion.div>
       </div>
