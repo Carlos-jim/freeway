@@ -25,7 +25,6 @@ function App() {
           <Route path="/chequeo" element={<CheckInForm />} />
           <Route path="/nose" element={<CardReservation />} />
           <Route path="/itinerario" element={<ItineraryTable />} />
-
         </Routes>
       </div>
     </Router>

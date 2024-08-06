@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import TableAdmin from "../components/datatableAdmin";
-import Navbar from "../components/navbarUser";
+import NavbarAdmin from "../components/navbarAdmin";
 import Tooltips from "../components/tooltip";
 
 const ReservationTable = () => {
@@ -26,7 +26,7 @@ const ReservationTable = () => {
 
   return (
     <div>
-      <Navbar></Navbar>
+      <NavbarAdmin></NavbarAdmin>
       <div className="flex flex-col items-center justify-center bg-gray-100">
         <div className="bg-white rounded shadow-md w-full">
           <h1

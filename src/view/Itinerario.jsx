@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { motion } from "framer-motion";
 import "../index.css";
 import "../components/backgroundImgUser";
 import BackgroundImgUser from "../components/backgroundImgUser";
@@ -15,22 +16,18 @@ const ItineraryTable = () => {
     { fechaSalida: "09/06/2024 13:00HRS", origen: "PORLAMAR", destino: "MAIQUETIA", tipo: "TURISTA", precio: "$200" },
   ];
 
-  // Estado para los filtros
   const [origenFilter, setOrigenFilter] = useState("");
   const [destinoFilter, setDestinoFilter] = useState("");
   const [precioMax, setPrecioMax] = useState(600);
 
-  // Obtener las opciones únicas para origen y destino
   const uniqueOrigenes = [...new Set(data.map((item) => item.origen))];
   const uniqueDestinos = [...new Set(data.map((item) => item.destino))];
 
-  // Convertir los precios de string a number para facilitar el filtrado
   const dataWithNumericPrices = data.map((item) => ({
     ...item,
     precio: parseFloat(item.precio.replace("$", ""))
   }));
 
-  // Filtrar los datos en base a los filtros seleccionados
   const filteredData = dataWithNumericPrices.filter((item) => {
     const matchOrigen = origenFilter ? item.origen === origenFilter : true;
     const matchDestino = destinoFilter ? item.destino === destinoFilter : true;
@@ -43,11 +40,20 @@ const ItineraryTable = () => {
       <Navbar />
       <BackgroundImgUser />
       <div className="container mx-auto p-4 pb-14 pt-20">
-        <h1 className="text-3xl font-bold text-center mb-8">
+        <motion.h1
+          className="text-3xl font-bold text-center mb-8"
+          initial={{ opacity: 0, y: -50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+        >
           ITINERARIO DE VUELO
-        </h1>
-        <div className="flex flex-start items-center mb-4">
-          {/* Filtro de Origen */}
+        </motion.h1>
+        <motion.div
+          className="flex flex-start items-center mb-4"
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+        >
           <select
             value={origenFilter}
             onChange={(e) => setOrigenFilter(e.target.value)}
@@ -60,7 +66,6 @@ const ItineraryTable = () => {
               </option>
             ))}
           </select>
-          {/* Filtro de Destino */}
           <select
             value={destinoFilter}
             onChange={(e) => setDestinoFilter(e.target.value)}
@@ -73,7 +78,6 @@ const ItineraryTable = () => {
               </option>
             ))}
           </select>
-          {/* Filtro de Precio */}
           <div className="flex items-center">
             <label className="mr-2">Precio Máximo: ${precioMax}</label>
             <input
@@ -86,8 +90,7 @@ const ItineraryTable = () => {
               className="border rounded py-1 px-2 m-4"
             />
           </div>
-        </div>
-        {/* Usa el componente DataTable y pasa la data filtrada como prop */}
+        </motion.div>
         <DataTableUser data={filteredData} />
       </div>
     </div>

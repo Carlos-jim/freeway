@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import nacionalidadOptions from '../.json/nacionalidad.json';
 import Tooltips from "./tooltip";
+import { motion } from 'framer-motion';
 
 const InputsReservation = () => {
   const [formData, setFormData] = useState({
@@ -83,8 +84,13 @@ const InputsReservation = () => {
     <div>
       <Tooltips content="Ingrese los datos en los campos para poder reservar su vuelo" />
       <form onSubmit={handleSubmit}>
-        <div className="grid grid-cols-2 gap-4">
-          <div className="relative mt-4">
+        <motion.div 
+          className="grid grid-cols-2 gap-4"
+          initial={{ opacity: 0, y: -50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 2 }}
+        >
+          <motion.div className="relative mt-4" transition={{ delay: 0.1 }}>
             <input
               type="text"
               id="nombre"
@@ -101,9 +107,9 @@ const InputsReservation = () => {
               Nombre*
             </label>
             {errors.nombre && <p className="text-red-500 text-xs italic">{errors.nombre}</p>}
-          </div>
+          </motion.div>
 
-          <div className="relative mt-4">
+          <motion.div className="relative mt-4" transition={{ delay: 0.2 }}>
             <input
               type="text"
               id="apellido"
@@ -120,9 +126,9 @@ const InputsReservation = () => {
               Apellido*
             </label>
             {errors.apellido && <p className="text-red-500 text-xs italic">{errors.apellido}</p>}
-          </div>
+          </motion.div>
 
-          <div className="relative mt-4">
+          <motion.div className="relative mt-4" transition={{ delay: 0.3 }}>
             <input
               type="date"
               id="fechaNacimiento"
@@ -138,9 +144,9 @@ const InputsReservation = () => {
               Fecha Nacimiento
             </label>
             {errors.fechaNacimiento && <p className="text-red-500 text-xs italic">{errors.fechaNacimiento}</p>}
-          </div>
+          </motion.div>
 
-          <div className="relative mt-4">
+          <motion.div className="relative mt-4" transition={{ delay: 0.4 }}>
             <select
               id="tipoDocumento"
               className="peer border p-2 rounded w-full bg-transparent"
@@ -159,9 +165,9 @@ const InputsReservation = () => {
               Tipo de Documento*
             </label>
             {errors.tipoDocumento && <p className="text-red-500 text-xs italic">{errors.tipoDocumento}</p>}
-          </div>
+          </motion.div>
 
-          <div className="relative mt-4">
+          <motion.div className="relative mt-4" transition={{ delay: 0.5 }}>
             <input
               type="text"
               id="numeroDocumento"
@@ -178,9 +184,9 @@ const InputsReservation = () => {
               N° de Documento*
             </label>
             {errors.numeroDocumento && <p className="text-red-500 text-xs italic">{errors.numeroDocumento}</p>}
-          </div>
+          </motion.div>
 
-          <div className="relative mt-4">
+          <motion.div className="relative mt-4" transition={{ delay: 0.6 }}>
             <input
               type="date"
               id="fechaVencimiento"
@@ -197,9 +203,9 @@ const InputsReservation = () => {
               Fecha Vto. Pasaporte*
             </label>
             {errors.fechaVencimiento && <p className="text-red-500 text-xs italic">{errors.fechaVencimiento}</p>}
-          </div>
+          </motion.div>
 
-          <div className="relative mt-4">
+          <motion.div className="relative mt-4" transition={{ delay: 0.7 }}>
             <select
               id="paisOrigen"
               className="peer border p-2 rounded w-full bg-transparent"
@@ -220,9 +226,9 @@ const InputsReservation = () => {
               País de origen
             </label>
             {errors.paisOrigen && <p className="text-red-500 text-xs italic">{errors.paisOrigen}</p>}
-          </div>
+          </motion.div>
 
-          <div className="relative mt-4">
+          <motion.div className="relative mt-4" transition={{ delay: 0.8 }}>
             <select
               id="genero"
               className="peer border p-2 rounded w-full bg-transparent"
@@ -240,9 +246,9 @@ const InputsReservation = () => {
               Género
             </label>
             {errors.genero && <p className="text-red-500 text-xs italic">{errors.genero}</p>}
-          </div>
+          </motion.div>
 
-          <div className="relative mt-4">
+          <motion.div className="relative mt-4" transition={{ delay: 0.9 }}>
             <input
               type="email"
               id="correo"
@@ -259,9 +265,9 @@ const InputsReservation = () => {
               Correo*
             </label>
             {errors.correo && <p className="text-red-500 text-xs italic">{errors.correo}</p>}
-          </div>
+          </motion.div>
 
-          <div className="relative mt-4">
+          <motion.div className="relative mt-4" transition={{ delay: 1.0 }}>
             <input
               type="text"
               id="telefono"
@@ -278,14 +284,19 @@ const InputsReservation = () => {
               Teléfono*
             </label>
             {errors.telefono && <p className="text-red-500 text-xs italic">{errors.telefono}</p>}
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
 
-        <div className="flex justify-center mt-4">
+        <motion.div 
+          className="flex justify-center mt-4"
+          initial={{ opacity: 0, y: -50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 1.1 }}
+        >
           <button className="bg-success-color-btn hover:bg-hover-success-color-btn text-white p-2 rounded-lg w-32">
             Guardar
           </button>
-        </div>
+        </motion.div>
       </form>
     </div>
   );
