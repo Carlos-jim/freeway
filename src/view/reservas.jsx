@@ -39,6 +39,9 @@ const ReservationTable = () => {
             <Tooltips content="Puede filtrar los vuelos, con los filtros, y confirmar reserva o desconfirmar" />
             <div className="flex flex-wrap -mx-2 mb-4">
               <div className="w-full md:w-1/5 px-2 mb-4 md:mb-0">
+                <label htmlFor="vuelo" className="block text-gray-700 text-sm font-bold mb-2">
+                  CÓDIGO DE VUELO
+                </label>
                 <input
                   className="shadow border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                   id="vuelo"
@@ -49,6 +52,9 @@ const ReservationTable = () => {
                 />
               </div>
               <div className="w-full md:w-1/5 px-2 mb-4 md:mb-0">
+                <label htmlFor="cedula" className="block text-gray-700 text-sm font-bold mb-2">
+                  CÉDULA
+                </label>
                 <input
                   className="shadow border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                   id="cedula"
@@ -59,8 +65,11 @@ const ReservationTable = () => {
                 />
               </div>
               <div className="w-full md:w-1/5 px-2 mb-4 md:mb-0">
+                <label htmlFor="nombre" className="block text-gray-700 text-sm font-bold mb-2">
+                  NOMBRE Y APELLIDO
+                </label>
                 <input
-                  className="shadow  border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                  className="shadow border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                   id="nombre"
                   type="text"
                   placeholder="NOMBRE Y APELLIDO"
@@ -69,6 +78,9 @@ const ReservationTable = () => {
                 />
               </div>
               <div className="w-full md:w-1/5 px-2 mb-4 md:mb-0">
+                <label htmlFor="tipo" className="block text-gray-700 text-sm font-bold mb-2">
+                  TIPO
+                </label>
                 <input
                   className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                   id="tipo"
@@ -79,6 +91,9 @@ const ReservationTable = () => {
                 />
               </div>
               <div className="w-full md:w-1/5 px-2">
+                <label htmlFor="estado" className="block text-gray-700 text-sm font-bold mb-2">
+                  ESTADO
+                </label>
                 <select
                   className="shadow border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                   id="estado"
