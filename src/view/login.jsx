@@ -9,6 +9,10 @@ import Tooltips from "../components/tooltip";
 const notify = () => toast.success("Inicio de sesión exitoso");
 
 const Login = () => {
+  const handleSubmit = () => {
+    notify();
+  };
+
   return (
     <div>
       <NavbarAuth />
@@ -23,25 +27,14 @@ const Login = () => {
           >
             INICIAR SESIÓN
           </h1>
-          <form>
-            <h2
-              className="block text-gray-800 text-sm font-bold mb-2 text-center mb-9"
-              style={{ color: "#6147FF" }}
-            >
-              Freeway Airlines
-            </h2>
-            <InputAuth />
-            <div className="flex items-center justify-center">
-              <button
-                className="bg-success-color-btn hover:bg-hover-success-color-btn text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline w-full"
-                type="button"
-                onClick={notify}
-              >
-                Ingresar
-              </button>
-              <ToastContainer />
-            </div>
-          </form>
+          <h2
+            className="block text-gray-800 text-sm font-bold mb-2 text-center mb-9"
+            style={{ color: "#6147FF" }}
+          >
+            Freeway Airlines
+          </h2>
+          <InputAuth onSubmit={handleSubmit} />
+          <ToastContainer />
         </div>
       </div>
     </div>

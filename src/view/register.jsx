@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 import "../index";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -8,15 +8,17 @@ import Tooltips from "../components/tooltip";
 
 const notify = () => toast.success("Registrado exitosamente");
 
-const Login = () => {
+const Register = () => {
+  const handleSubmit = () => {
+    notify();
+  };
+
   return (
     <div>
       <NavbarAuth />
       <div className="flex items-center justify-center min-h-screen bg-gray-100">
         <div className="bg-white p-8 rounded shadow-md w-full max-w-xs md:max-w-md lg:max-w-lg xl:max-w-xl">
-          <Tooltips
-             content="Para registrarse, ingrese su correo electronico y contraseña"
-          />
+          <Tooltips content="Para registrarse, ingrese su correo electronico y contraseña" />
           <h1
             className="text-5xl font-bold text-center bg-clip-text text-transparent mb-9"
             style={{
@@ -25,30 +27,12 @@ const Login = () => {
           >
             REGISTRATE
           </h1>
-          <form>
-            <h2
-              className="block text-gray-800 text-sm font-bold mb-2 text-center mb-9"
-              style={{ color: "#6147FF" }}
-            >
-              FreeWay Airlines
-            </h2>
-            <InputAuth />
-            <div className="flex items-center justify-center">
-              <button
-                className="bg-success-color-btn hover:bg-hover-success-color-btn text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline w-full"
-                type="button"
-                onClick={notify}
-              >
-                Registrarse
-              </button>
-
-              <ToastContainer />
-            </div>
-          </form>
+          <InputAuth onSubmit={handleSubmit} />
+          <ToastContainer />
         </div>
       </div>
     </div>
   );
 };
 
-export default Login;
+export default Register;
