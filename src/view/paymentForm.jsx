@@ -51,16 +51,19 @@ const PaymentForm = () => {
                 type="text"
                 placeholder="numero de cuenta"
                 className="border p-2 rounded w-full"
+                required
               />
               <input
                 type="text"
                 placeholder="CVV"
                 className="border p-2 rounded w-full"
+                required
               />
               <input
                 type="text"
                 placeholder="fecha de vencimiento"
                 className="border p-2 rounded w-full"
+                required
               />
             </div>
           </CSSTransition>
