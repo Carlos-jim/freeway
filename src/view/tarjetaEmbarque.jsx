@@ -18,7 +18,7 @@ const BoardingPass = () => {
                 <img src={airplane} alt="Airplane" className="w-14 h-14" />
               </div>
               <div className="text-center">
-                <h3 className="font-bold text-lg mb-2">BOARDING PASS</h3>
+                <h3 className="font-bold text-lg mb-2">TARJETA DE EMBARQUE</h3>
               </div>
             </div>
 

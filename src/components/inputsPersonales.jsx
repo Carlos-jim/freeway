@@ -4,18 +4,35 @@ import Tooltips from "./tooltip";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 
+// Función para formatear la fecha al formato yyyy-mm-dd
+const formatDate = (date) => {
+  const d = new Date(date);
+  const month = `${d.getMonth() + 1}`.padStart(2, "0");
+  const day = `${d.getDate()}`.padStart(2, "0");
+  const year = d.getFullYear();
+  return `${year}-${month}-${day}`;
+};
+
+// Obtener la fecha actual
+const today = new Date();
+today.setFullYear(today.getFullYear() -20);
+
+// Configurar una fecha de vencimiento por defecto (por ejemplo, 10 años a partir de hoy)
+const defaultExpiryDate = new Date();
+defaultExpiryDate.setFullYear(defaultExpiryDate.getFullYear() + 10);
+
 const InputsPersonales = () => {
   const [formData, setFormData] = useState({
-    nombre: "",
-    apellido: "",
-    fechaNacimiento: "",
-    tipoDocumento: "",
-    numeroDocumento: "",
-    fechaVencimiento: "",
-    paisOrigen: "",
-    genero: "",
-    correo: "",
-    telefono: "",
+    nombre: "John",
+    apellido: "Smith",
+    fechaNacimiento: formatDate(today), // Fecha actual
+    tipoDocumento: "Cedula de identidad",
+    numeroDocumento: "V-30921233",
+    fechaVencimiento: formatDate(defaultExpiryDate), // Fecha de vencimiento predeterminada
+    paisOrigen: "Venezuela",
+    genero: "Masculino",
+    correo: "johnsmithweek@gmail.com",
+    telefono: "0424774373",
   });
 
   const [errors, setErrors] = useState({
@@ -329,9 +346,11 @@ const InputsPersonales = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 1.1 }}
         >
+          <Link to="/embarque">
           <button className="bg-success-color-btn hover:bg-hover-success-color-btn text-white p-2 rounded-lg w-32">
             Confirmar
           </button>
+          </Link>
           <Link to="/chequeo">
             <button className="bg-[#FF0000] hover:bg-[#DA0808] text-white p-2 rounded-lg ml-4 w-32">
               Cancelar
