@@ -5,7 +5,7 @@ const data = [
     vuelo: '9023948523849',
     cedula: '131913456',
     nombre: 'JOHN DOE',
-    tipo: 'TURISTA',
+    tipo: 'ECONOMICA',
     estado: 'SIN CONFIRMAR',
     confirmado: false, // Nuevo estado para gestionar la confirmación
   },
@@ -13,7 +13,7 @@ const data = [
     vuelo: '3475293478293',
     cedula: '131913456',
     nombre: 'JOHN DOE',
-    tipo: 'PRIMERA CLASE',
+    tipo: 'ECONOMICA',
     estado: 'CONFIRMADA',
     confirmado: true, // Nuevo estado para gestionar la confirmación
   },
