@@ -33,6 +33,14 @@ const NavbarAdmin = () => {
           >
             🛫 Registrar vuelo
           </Link>
+          <Link
+            to="/reservar-vuelo"
+            className={`${
+              location.pathname === "/registrar-vuelo" ? "text-hover-link" : "text-gray-700"
+            } hover:text-hover-link`}
+          >
+            💸 Vender boleto
+          </Link>
         </div>
         <div className="md:hidden">
           <button
