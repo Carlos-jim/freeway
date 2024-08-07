@@ -11,8 +11,9 @@ const BackgroundImgUser = () => {
         className="bg-cover  bg-center"
         style={{
           backgroundImage: `url(${backgroundImage})`,
-          height: "28rem",
+          height: "24rem",
           backgroundRepeat: "no-repeat",
+          backgroundSize: "cover",
         }}
       ></motion.div>
     </div>
