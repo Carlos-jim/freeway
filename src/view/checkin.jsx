@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import Navbar from "../components/navbarUser";
 import BackgroundImgUser from "../components/backgroundImgUser";
 import { Link, useNavigate } from "react-router-dom";
+import Migas from "../components/migaspan";
 
 const CheckInForm = () => {
   const [reservationCode, setReservationCode] = useState("");
@@ -19,8 +20,6 @@ const CheckInForm = () => {
     // Validación básica del código de reserva
     if (reservationCode.trim() === "") {
       setError("El código de reserva es obligatorio.");
-    } else if (reservationCode.length !== 6) {
-      setError("El código de reserva debe tener 6 caracteres.");
     } else {
       setError("");
       // Redirigir a la página de datos personales
@@ -45,40 +44,8 @@ const CheckInForm = () => {
           transition={{ duration: 0.5 }}
         >
           <h1 className="text-3xl font-bold text-center mb-8">CHECK-IN</h1>
-          <div className="flex flex-col sm:flex-row justify-between mb-8 px-4 sm:px-18 md:px-24 lg:px-55">
-            <motion.div
-              className="flex flex-col items-center mb-4 sm:mb-0"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.5, delay: 0.1 }}
-            >
-              <div className="bg-blue-500 text-white rounded-full w-8 h-8 flex items-center justify-center">
-                1
-              </div>
-              <span className="text-sm mt-2">CHECK-IN</span>
-            </motion.div>
-            <motion.div
-              className="flex flex-col items-center mb-4 sm:mb-0"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.5, delay: 0.2 }}
-            >
-              <div className="bg-gray-200 text-gray-500 rounded-full w-8 h-8 flex items-center justify-center">
-                2
-              </div>
-              <span className="text-sm mt-2">DATOS PASAJEROS</span>
-            </motion.div>
-            <motion.div
-              className="flex flex-col items-center"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.5, delay: 0.3 }}
-            >
-              <div className="bg-gray-200 text-gray-500 rounded-full w-8 h-8 flex items-center justify-center">
-                3
-              </div>
-              <span className="text-sm mt-2">TARJETA DE EMBARQUE</span>
-            </motion.div>
+          <div>
+            <Migas></Migas>
           </div>
           <form className="flex items-center flex-col" onSubmit={handleSubmit}>
             <div className="mb-4">
@@ -114,7 +81,7 @@ const CheckInForm = () => {
               >
                 COMENZAR CHECK-IN
               </motion.button>
-              <Link to="/inicio">
+              <Link to="/">
                 <motion.button
                   className="bg-[#FF0000] hover:bg-[#DA0808] mt-7 text-white font-bold py-2 px-7 rounded focus:outline-none focus:shadow-outline"
                   type="button"

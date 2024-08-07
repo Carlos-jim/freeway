@@ -9,6 +9,11 @@ const NavbarAuth = () => {
           <span className="text-[#6147FF]">Freeway Airlines</span>
         </div>
         <div className="hidden md:flex items-center space-x-4">
+          <Link
+            to="/"
+          >
+            🏠 Inicio
+          </Link>
           <Link to="/login">
             <a
               href="#iniciar-sesion"
@@ -18,7 +23,7 @@ const NavbarAuth = () => {
             </a>
           </Link>
 
-          <Link to="/">
+          <Link to="/registro">
             <a
               href="#signup"
               className="text-white px-4 py-2 rounded-md hover:bg-purple-700"

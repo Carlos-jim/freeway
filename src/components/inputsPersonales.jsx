@@ -101,7 +101,7 @@ const InputsPersonales = () => {
 
   return (
     <div>
-      <Tooltips content="Ingrese los datos en los campos para poder reservar su vuelo" />
+      <Tooltips content="Verifique que los datos sean los correctos" />
       <form onSubmit={handleSubmit}>
         <motion.div
           className="grid grid-cols-2 gap-4"

@@ -18,7 +18,7 @@ const Navbar = () => {
         </div>
         <div className="hidden md:flex items-center space-x-4">
           <Link
-            to="/inicio"
+            to="/"
             className={`${
               location.pathname === "/inicio" ? "text-hover-link" : "text-gray-700"
             } hover:text-hover-link`}
@@ -48,6 +48,24 @@ const Navbar = () => {
             } hover:text-hover-link`}
           >
             👤 Chequeo
+          </Link>
+          <Link to="/login">
+            <a
+              href="#iniciar-sesion"
+              className="text-gray-700 hover:text-gray-900"
+            >
+              Iniciar sesión
+            </a>
+          </Link>
+
+          <Link to="/registro">
+            <a
+              href="#signup"
+              className="text-white px-4 py-2 rounded-md hover:bg-purple-700"
+              style={{ background: "#6147FF" }}
+            >
+              Registrate
+            </a>
           </Link>
         </div>
         <div className="md:hidden">

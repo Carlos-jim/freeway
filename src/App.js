@@ -18,10 +18,10 @@ function App() {
     <Router>
       <div className="App">
         <Routes>
-          <Route path="/" element={<Register />} />
+          <Route path="/registro" element={<Register />} />
           <Route path="/embarque" element={<BoardingPass />} />
           <Route path="/login/admin" element={<LoginAdmin />} />
-          <Route path="/inicio" element={<Home />} />
+          <Route path="/" element={<Home />} />
           <Route path="/login" element={<Login />} />
           <Route path="/pagos" element={<PaymentForm />} />
           <Route path="/registrar-vuelo" element={<FlightRegistration />} />

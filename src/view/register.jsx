@@ -5,6 +5,7 @@ import "react-toastify/dist/ReactToastify.css";
 import InputAuth from "../components/input-auth";
 import NavbarAuth from "../components/navbarAuth";
 import Tooltips from "../components/tooltip";
+import gmail from '../public/google.png'
 
 const notify = () => toast.success("Registrado exitosamente");
 
@@ -28,6 +29,10 @@ const Register = () => {
             REGISTRATE
           </h1>
           <InputAuth onSubmit={handleSubmit} />
+          <div className="flex items-center justify-center mb-4 p-2 bg-[#EEEEEE] rounded-lg cursor-pointer mt-4">
+            <img src={gmail} alt="Visa" className="w-6 h-6 object-contain" />
+            <span className="text-gray-700 ml-2 font-semibold">GOOGLE</span>
+          </div>
           <ToastContainer />
         </div>
       </div>
