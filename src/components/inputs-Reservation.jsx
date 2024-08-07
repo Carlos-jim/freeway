@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import nacionalidadOptions from '../.json/nacionalidad.json';
 import Tooltips from "./tooltip";
 import { motion } from 'framer-motion';
+import { Link, useNavigate } from "react-router-dom";
 
 const InputsReservation = () => {
   const [formData, setFormData] = useState({
@@ -16,6 +17,8 @@ const InputsReservation = () => {
     correo: '',
     telefono: ''
   });
+
+  const navigate = useNavigate();
 
   const [errors, setErrors] = useState({
     nombre: '',
@@ -53,6 +56,7 @@ const InputsReservation = () => {
       correo: '',
       telefono: ''
     };
+    
 
     // Validar que el documento comience con V- o E- seguido de números
     if (!/^([VE]-\d+)$/.test(formData.numeroDocumento)) {
@@ -77,6 +81,7 @@ const InputsReservation = () => {
 
     if (valid) {
       console.log('Formulario enviado', formData);
+      navigate("/pagos");
     }
   };
 

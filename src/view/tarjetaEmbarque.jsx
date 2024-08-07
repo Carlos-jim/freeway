@@ -4,26 +4,47 @@ import airplane from "../public/plane.png";
 import barcode from "../public/bar-code.png";
 import { Link } from "react-router-dom";
 import Navbar from "../components/navbarUser";
+import { motion } from "framer-motion";
 
 const BoardingPass = () => {
   return (
     <div>
-      <Navbar></Navbar>
-      <div className="flex flex-col items-center">
-        <div className="max-w-xl bg-white shadow-lg rounded-lg border overflow-hidden mt-14">
+      <Navbar />
+      <motion.div
+        className="flex flex-col items-center"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.8 }}
+      >
+        <motion.div
+          className="max-w-xl bg-white shadow-lg rounded-lg border overflow-hidden mt-14"
+          initial={{ opacity: 0, y: 50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+        >
           <div className="flex">
             {/* Sección Izquierda */}
-            <div className="bg-blue-900 text-white p-4 flex flex-col items-center">
+            <motion.div
+              className="bg-blue-900 text-white p-4 flex flex-col items-center"
+              initial={{ opacity: 0, x: -50 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, delay: 0.3 }}
+            >
               <div className="text-white mb-6">
                 <img src={airplane} alt="Airplane" className="w-14 h-14" />
               </div>
               <div className="text-center">
                 <h3 className="font-bold text-lg mb-2">TARJETA DE EMBARQUE</h3>
               </div>
-            </div>
+            </motion.div>
 
             {/* Sección Derecha */}
-            <div className="flex-1 p-4">
+            <motion.div
+              className="flex-1 p-4"
+              initial={{ opacity: 0, x: 50 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+            >
               <div className="mb-4">
                 <h3 className="text-lg font-semibold">Nombre del pasajero</h3>
                 <p className="text-gray-800">JOHN SMITH</p>
@@ -76,20 +97,25 @@ const BoardingPass = () => {
                   <img src={barcode} alt="Barcode" className="w-20 h-20" />
                 </div>
               </div>
-            </div>
+            </motion.div>
           </div>
-        </div>
+        </motion.div>
         <Link to="/inicio">
-          <div className="w-40 flex justify-center">
+          <motion.div
+            className="w-40 flex justify-center"
+            initial={{ opacity: 0, y: 50 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.5 }}
+          >
             <button
               type="submit"
               className="bg-green-500 hover:bg-green-600 text-white p-2 rounded w-full mt-6"
             >
               Aceptar
             </button>
-          </div>
+          </motion.div>
         </Link>
-      </div>
+      </motion.div>
     </div>
   );
 };
