@@ -12,6 +12,7 @@ import CardReservation from './view/tarjetasReservas'
 import BoardingPass from './view/tarjetaEmbarque';
 import Home from './view/home';
 import PersonData from './view/personData';
+import LoginAdmin from './view/loginAdmin';
 function App() {
   return (
     <Router>
@@ -19,6 +20,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Register />} />
           <Route path="/embarque" element={<BoardingPass />} />
+          <Route path="/login/admin" element={<LoginAdmin />} />
           <Route path="/inicio" element={<Home />} />
           <Route path="/login" element={<Login />} />
           <Route path="/pagos" element={<PaymentForm />} />

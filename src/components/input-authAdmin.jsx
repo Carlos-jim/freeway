@@ -2,8 +2,7 @@ import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 
-
-const InputAuth = ({ onSubmit }) => {
+const InputAuthAdmin = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errors, setErrors] = useState({ email: "", password: "" });
@@ -31,7 +30,7 @@ const InputAuth = ({ onSubmit }) => {
 
     if (valid) {
       // Redirigir a /login si la validación es exitosa
-      navigate("/inicio");
+      navigate("/reservaciones");
     }
   };
 
@@ -115,4 +114,4 @@ const InputAuth = ({ onSubmit }) => {
   );
 };
 
-export default InputAuth;
+export default InputAuthAdmin;
