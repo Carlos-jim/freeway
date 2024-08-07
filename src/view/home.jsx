@@ -45,10 +45,7 @@ const Home = () => {
               transition={{ duration: 0.5, delay: 1 }}
             >
               <div className="flex items-center mb-6">
-                <label className="flex items-center text-gray-700">
-                  <input type="checkbox" className="mr-2" />
-                  IDA Y VUELTA
-                </label>
+            
               </div>
               <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
                 <div className="flex flex-col mb-4">
