@@ -20,7 +20,7 @@ const Navbar = () => {
           <Link
             to="/"
             className={`${
-              location.pathname === "/inicio" ? "text-hover-link" : "text-gray-700"
+              location.pathname === "/" ? "text-hover-link" : "text-gray-700"
             } hover:text-hover-link`}
           >
             🏠 Inicio
@@ -28,7 +28,7 @@ const Navbar = () => {
           <Link
             to="/reserva-rapida"
             className={`${
-              location.pathname === "/itinerario" ? "text-hover-link" : "text-gray-700"
+              location.pathname === "/reserva-rapida" ? "text-hover-link" : "text-gray-700"
             } hover:text-hover-link`}
           >
             🚀 Reserva rapida

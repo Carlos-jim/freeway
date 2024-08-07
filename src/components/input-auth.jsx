@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
-
+import gmail from "../public/google.png";
 
 const InputAuth = ({ onSubmit }) => {
   const [email, setEmail] = useState("");
@@ -30,8 +30,32 @@ const InputAuth = ({ onSubmit }) => {
     setErrors(newErrors);
 
     if (valid) {
-      // Redirigir a /login si la validación es exitosa
+      // Redirigir a /inicio si la validación es exitosa
       navigate("/inicio");
+    }
+  };
+
+  const handleGoogleClick = () => {
+    let valid = true;
+    const newErrors = { email: "", password: "" };
+
+    // Validar que el email sea un correo electrónico válido
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      newErrors.email = "Ingrese un correo electrónico válido";
+      valid = false;
+    }
+
+    if (password.length <= 3) {
+      newErrors.password = "La contraseña debe tener más de 3 caracteres";
+      valid = false;
+    }
+
+    setErrors(newErrors);
+
+    if (valid) {
+      // Redirigir a / si la validación es exitosa
+      navigate("/");
     }
   };
 
@@ -110,6 +134,13 @@ const InputAuth = ({ onSubmit }) => {
         >
           ACCEDER
         </motion.button>
+      </div>
+      <div
+        className="flex items-center justify-center mb-4 p-2 bg-[#EEEEEE] rounded-lg cursor-pointer mt-4"
+        onClick={handleGoogleClick}
+      >
+        <img src={gmail} alt="Visa" className="w-6 h-6 object-contain" />
+        <span className="text-gray-700 ml-2 font-semibold">GOOGLE</span>
       </div>
     </motion.form>
   );
