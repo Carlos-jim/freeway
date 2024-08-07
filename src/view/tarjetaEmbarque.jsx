@@ -100,7 +100,7 @@ const BoardingPass = () => {
             </motion.div>
           </div>
         </motion.div>
-        <Link to="/inicio">
+        <Link to="/">
           <motion.div
             className="w-40 flex justify-center"
             initial={{ opacity: 0, y: 50 }}
