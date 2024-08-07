@@ -92,9 +92,6 @@ const Home = () => {
               </a>
               <Link to="/chequeo">👤 CHECK-IN</Link>
               <Link to="/itinerario">🗺️ ITINERARIO</Link>
-              <a href="#" className="text-gray-500">
-                🛅 MI RESERVA
-              </a>
             </motion.nav>
             <motion.form
               className="p-8 bg-white rounded-md shadow-lg"

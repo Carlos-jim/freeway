@@ -28,7 +28,7 @@ function App() {
           <Route path="/reservaciones" element={<ReservationTable />} />
           <Route path="/reservar-vuelo" element={<FlightReservation />} />
           <Route path="/chequeo" element={<CheckInForm />} />
-          <Route path="/nose" element={<CardReservation />} />
+          <Route path="/reserva-rapida" element={<CardReservation />} />
           <Route path="/itinerario" element={<ItineraryTable />} />
           <Route path="/chequeo/datos-personales" element={<PersonData />} />
 

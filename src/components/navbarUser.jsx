@@ -26,6 +26,14 @@ const Navbar = () => {
             🏠 Inicio
           </Link>
           <Link
+            to="/reserva-rapida"
+            className={`${
+              location.pathname === "/itinerario" ? "text-hover-link" : "text-gray-700"
+            } hover:text-hover-link`}
+          >
+            🚀 Reserva rapida
+          </Link>
+          <Link
             to="/itinerario"
             className={`${
               location.pathname === "/itinerario" ? "text-hover-link" : "text-gray-700"
