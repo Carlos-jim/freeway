@@ -34,9 +34,9 @@ const NavbarAdmin = () => {
             🛫 Registrar vuelo
           </Link>
           <Link
-            to="/itinerario"
+            to="/itinerario-admin"
             className={`${
-              location.pathname === "/itinerario" ? "text-hover-link" : "text-gray-700"
+              location.pathname === "/itinerario-admin" ? "text-hover-link" : "text-gray-700"
             } hover:text-hover-link`}
           >
             💸 Vender boleto

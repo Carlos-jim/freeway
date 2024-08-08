@@ -13,6 +13,7 @@ import BoardingPass from './view/tarjetaEmbarque';
 import Home from './view/home';
 import PersonData from './view/personData';
 import LoginAdmin from './view/loginAdmin';
+import ItineraryTableAdmin from './view/ItinerarioAdmin';
 function App() {
   return (
     <Router>
@@ -23,6 +24,7 @@ function App() {
           <Route path="/login/admin" element={<LoginAdmin />} />
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/itinerario-admin" element={<ItineraryTableAdmin />} />
           <Route path="/pagos" element={<PaymentForm />} />
           <Route path="/registrar-vuelo" element={<FlightRegistration />} />
           <Route path="/reservaciones" element={<ReservationTable />} />
