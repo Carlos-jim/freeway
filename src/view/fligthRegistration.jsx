@@ -1,10 +1,48 @@
-import React from "react";
+import React, { useState } from "react";
 import { motion } from "framer-motion";
+import { useNavigate } from "react-router-dom"; // Importa useNavigate para redirección
 import options from "../.json/options-select.json";
 import NavbarAdmin from "../components/navbarAdmin";
 import Tooltips from "../components/tooltip";
 
 const FlightRegistration = () => {
+  const navigate = useNavigate();
+  const [formData, setFormData] = useState({
+    codigoVuelo: "",
+    origen: "",
+    destino: "",
+    fechaDespegue: "",
+    fechaArrivo: "",
+    clase: "",
+    tipo: "",
+  });
+
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.id]: e.target.value });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    // Validar que todos los campos estén rellenados
+    const { codigoVuelo, origen, destino, fechaDespegue, fechaArrivo, clase, tipo } = formData;
+
+    if (
+      codigoVuelo &&
+      origen &&
+      destino &&
+      fechaDespegue &&
+      fechaArrivo &&
+      clase &&
+      tipo
+    ) {
+      // Si todos los campos son válidos, redirige al usuario
+      navigate("/registrar-vuelo");
+    } else {
+      alert("Por favor, complete todos los campos.");
+    }
+  };
+
   return (
     <div>
       <NavbarAdmin />
@@ -19,7 +57,7 @@ const FlightRegistration = () => {
           >
             REGISTRO DE VUELOS
           </motion.h1>
-          <form className="p-16">
+          <form className="p-16" onSubmit={handleSubmit}>
             <Tooltips content="Ingrese los datos del vuelo a registrar en los campos" />
             <div className="mb-4">
               <motion.label
@@ -29,16 +67,19 @@ const FlightRegistration = () => {
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.5, delay: 0.1 }}
               >
-                CÓDIGO DE VUELO
+                CÓDIGO DE VUELO*
               </motion.label>
               <motion.input
                 className="shadow border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                 id="codigoVuelo"
                 type="text"
                 placeholder="Código de vuelo"
+                value={formData.codigoVuelo}
+                onChange={handleChange}
                 initial={{ opacity: 0, y: -50 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.2 }}
+                required
               />
             </div>
             <div className="flex flex-wrap -mx-2 mb-4">
@@ -50,16 +91,19 @@ const FlightRegistration = () => {
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.5, delay: 0.3 }}
                 >
-                  ORIGEN
+                  ORIGEN*
                 </motion.label>
                 <motion.input
                   className="shadow border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                   id="origen"
                   type="text"
                   placeholder="Origen"
+                  value={formData.origen}
+                  onChange={handleChange}
                   initial={{ opacity: 0, y: -50 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: 0.4 }}
+                  required
                 />
               </div>
               <div className="w-full md:w-1/2 px-2">
@@ -70,16 +114,19 @@ const FlightRegistration = () => {
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.5, delay: 0.5 }}
                 >
-                  DESTINO
+                  DESTINO*
                 </motion.label>
                 <motion.input
                   className="shadow border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                   id="destino"
                   type="text"
                   placeholder="Destino"
+                  value={formData.destino}
+                  onChange={handleChange}
                   initial={{ opacity: 0, y: -50 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: 0.6 }}
+                  required
                 />
               </div>
             </div>
@@ -91,17 +138,21 @@ const FlightRegistration = () => {
                   initial={{ opacity: 0, x: -50 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.5, delay: 0.7 }}
+                  required
                 >
-                  FECHA DE DESPEGUE
+                  FECHA DE DESPEGUE*
                 </motion.label>
                 <motion.input
                   className="shadow border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                   id="fechaDespegue"
                   type="date"
                   placeholder="Fecha de despegue"
+                  value={formData.fechaDespegue}
+                  onChange={handleChange}
                   initial={{ opacity: 0, y: -50 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: 0.8 }}
+                  required
                 />
               </div>
               <div className="w-full md:w-1/2 px-2">
@@ -111,17 +162,21 @@ const FlightRegistration = () => {
                   initial={{ opacity: 0, x: -50 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.5, delay: 0.9 }}
+                  required
                 >
-                  FECHA DE ARRIVO
+                  FECHA DE ARRIVO*
                 </motion.label>
                 <motion.input
                   className="shadow border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                   id="fechaArrivo"
                   type="date"
                   placeholder="Fecha de arrivo"
+                  value={formData.fechaArrivo}
+                  onChange={handleChange}
                   initial={{ opacity: 0, y: -50 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: 1.0 }}
+                  required
                 />
               </div>
             </div>
@@ -134,14 +189,17 @@ const FlightRegistration = () => {
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.5, delay: 1.1 }}
                 >
-                  CLASE
+                  CLASE*
                 </motion.label>
                 <motion.select
                   className="shadow border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                   id="clase"
+                  value={formData.clase}
+                  onChange={handleChange}
                   initial={{ opacity: 0, y: -50 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: 1.2 }}
+                  required
                 >
                   {options.clasevuelo.map((option) => (
                     <option key={option.value} value={option.value}>
@@ -158,14 +216,17 @@ const FlightRegistration = () => {
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.5, delay: 1.3 }}
                 >
-                  TIPO
+                  TIPO*
                 </motion.label>
                 <motion.select
                   className="shadow border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                   id="tipo"
+                  value={formData.tipo}
+                  onChange={handleChange}
                   initial={{ opacity: 0, y: -50 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: 1.4 }}
+                  required
                 >
                   {options.tipovuelo.map((option) => (
                     <option key={option.value} value={option.value}>
