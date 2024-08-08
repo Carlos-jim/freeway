@@ -14,18 +14,24 @@ import Home from './view/home';
 import PersonData from './view/personData';
 import LoginAdmin from './view/loginAdmin';
 import ItineraryTableAdmin from './view/ItinerarioAdmin';
+import FlightReservationAdmin from './view/FligthReservationAdmin';
+import PaymentFormAdmin from './view/paymentFormAdmin';
+import BoardingPassAdmin from './view/tarjetaEmbarqueAdmin';
 function App() {
   return (
     <Router>
       <div className="App">
         <Routes>
           <Route path="/registro" element={<Register />} />
+          <Route path="/embarque-admin" element={<BoardingPassAdmin />} />
+          <Route path="/reservar-vuelo-admin" element={<FlightReservationAdmin />} />
           <Route path="/embarque" element={<BoardingPass />} />
           <Route path="/login/admin" element={<LoginAdmin />} />
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<Login />} />
           <Route path="/itinerario-admin" element={<ItineraryTableAdmin />} />
           <Route path="/pagos" element={<PaymentForm />} />
+          <Route path="/pagos-admin" element={<PaymentFormAdmin />} />
           <Route path="/registrar-vuelo" element={<FlightRegistration />} />
           <Route path="/reservaciones" element={<ReservationTable />} />
           <Route path="/reservar-vuelo" element={<FlightReservation />} />

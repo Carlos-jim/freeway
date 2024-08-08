@@ -4,7 +4,7 @@ import "../index.css";
 import "../components/backgroundImgUser";
 import BackgroundImgUser from "../components/backgroundImgUser";
 import NavbarAdmin from "../components/navbarAdmin";
-import DataTableUser from "../components/datatableUser"; // Importa el nuevo componente
+import DataTableAdminItinerario from "../components/datatableAdminItinerario"; // Importa el nuevo componente
 
 const ItineraryTableAdmin = () => {
   const data = [
@@ -127,7 +127,7 @@ const ItineraryTableAdmin = () => {
             />
           </div>
         </motion.div>
-        <DataTableUser data={filteredData} />
+        <DataTableAdminItinerario data={filteredData} />
       </div>
     </div>
   );
