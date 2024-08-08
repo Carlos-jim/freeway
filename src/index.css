@@ -56,5 +56,31 @@
     border-radius: 50%;
   }
   
+/* Estilo para el thumb del range en navegadores WebKit (Chrome, Safari) */
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 15px; /* Ajusta el tamaño según prefieras */
+  height: 15px; /* Ajusta el tamaño según prefieras */
+  border-radius: 50%; /* Hace el thumb redondo */
+  background: #6f16ff; /* Color de fondo */
+  cursor: pointer;
+}
+
+/* Estilo para el thumb del range en Firefox */
+input[type="range"]::-moz-range-thumb {
+  width: 10px; /* Ajusta el tamaño según prefieras */
+  height: 50px; /* Ajusta el tamaño según prefieras */
+  border-radius: 50%; /* Hace el thumb redondo */
+  background: #1d4ed8; /* Color de fondo */
+  cursor: pointer;
+}
+
+/* Personalización adicional opcional */
+input[type="range"] {
+  accent-color: #1d4ed8; /* Color principal del range */
+  height: 7px; /* Ajusta la altura del track */
+  background-color: #d1d5db; /* Color del track */
+}
 
   
