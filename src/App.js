@@ -5,7 +5,7 @@ import Register from './view/register';
 import FlightRegistration from './view/fligthRegistration';
 import ReservationTable from './view/reservas';
 import FlightReservation from './view/FligthReservation';
-import PaymentForm from './view/paymentForm';
+import PaymentForm from './view/user/paymentForm';
 import CheckInForm from './view/checkin';
 import ItineraryTable from './view/Itinerario';
 import CardReservation from './view/tarjetasReservas'

@@ -4,7 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 
 import visaLogo from "../public/visa.png";
 import Navbar from "../components/navbarUser";
-import Tooltips from "../components/tooltip";
+import Tooltips from "../../components/tooltip";
 import "../public/paymentForm.css"; // Asegúrate de tener esta hoja de estilos
 import cash from "../public/dollar.png";
 
