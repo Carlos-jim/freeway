@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom"; // Importa useNavigate para redirección
-import options from "../.json/options-select.json";
-import NavbarAdmin from "../components/navbarAdmin";
-import Tooltips from "../components/tooltip";
+import options from "../../.json/options-select.json";
+import NavbarAdmin from "../../components/admin/navbarAdmin";
+import Tooltips from "../../components/tooltip";
 
 const FlightRegistration = () => {
   const navigate = useNavigate();

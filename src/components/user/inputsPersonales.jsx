@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import nacionalidadOptions from "../.json/nacionalidad.json";
-import Tooltips from "./tooltip";
+import nacionalidadOptions from "../../.json/nacionalidad.json";
+import Tooltips from "../tooltip";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 

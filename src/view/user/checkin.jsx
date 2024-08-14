@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import Navbar from "../components/navbarUser";
 import BackgroundImgUser from "../components/backgroundImgUser";
 import { Link, useNavigate } from "react-router-dom";
-import Migas from "../components/migaspan";
+import Migas from "../../components/migaspan";
 
 const CheckInForm = () => {
   const [reservationCode, setReservationCode] = useState("");

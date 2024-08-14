@@ -2,7 +2,7 @@ import React from "react";
 import InputsReservationAdmin from "../components/inputs-ReservationAdmin";
 import NavbarAdmin from "../components/navbarAdmin";
 import BackgroundImgUser from "../components/backgroundImgUser";
-import Tooltips from "../components/tooltip";
+import Tooltips from "../../components/tooltip";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 

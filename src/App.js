@@ -9,14 +9,14 @@ import PaymentForm from './view/user/paymentForm';
 import CheckInForm from './view/checkin';
 import ItineraryTable from './view/Itinerario';
 import CardReservation from './view/tarjetasReservas'
-import BoardingPass from './view/tarjetaEmbarque';
+import BoardingPass from './view/user/tarjetaEmbarque';
 import Home from './view/home';
 import PersonData from './view/personData';
 import LoginAdmin from './view/loginAdmin';
 import ItineraryTableAdmin from './view/ItinerarioAdmin';
 import FlightReservationAdmin from './view/FligthReservationAdmin';
 import PaymentFormAdmin from './view/paymentFormAdmin';
-import BoardingPassAdmin from './view/tarjetaEmbarqueAdmin';
+import BoardingPassAdmin from './view/admin/tarjetaEmbarqueAdmin';
 function App() {
   return (
     <Router>

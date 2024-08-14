@@ -1,10 +1,10 @@
 import React from "react";
-import "../index";
+import "../../index";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import InputAuth from "../components/input-auth";
-import NavbarAuth from "../components/navbarAuth";
-import Tooltips from "../components/tooltip";
+import NavbarAuth from "../../components/navbarAuth";
+import Tooltips from "../../components/tooltip";
 
 const notify = () => toast.success("Inicio de sesión exitoso");
 
