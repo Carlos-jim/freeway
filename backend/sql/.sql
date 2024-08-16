@@ -1,40 +1,47 @@
-create table airlines (
-  id bigint primary key generated always as identity,
-  name text not null,
-  code text not null unique
+CREATE DATABASE freeway;
+
+USE freeway;
+
+CREATE TABLE airlines (
+  id BIGINT PRIMARY KEY AUTO_INCREMENT,
+  name VARCHAR(255) NOT NULL,
+  code VARCHAR(255) NOT NULL UNIQUE
 );
 
-create table flights (
-  id bigint primary key generated always as identity,
-  airline_id bigint references airlines (id),
-  flight_number text not null,
-  departure_airport text not null,
-  arrival_airport text not null,
-  departure_time timestamp with time zone not null,
-  arrival_time timestamp with time zone not null
+CREATE TABLE flights (
+  id BIGINT PRIMARY KEY AUTO_INCREMENT,
+  airline_id BIGINT,
+  flight_number VARCHAR(255) NOT NULL,
+  departure_airport VARCHAR(255) NOT NULL,
+  arrival_airport VARCHAR(255) NOT NULL,
+  departure_time TIMESTAMP NOT NULL,
+  arrival_time TIMESTAMP NOT NULL,
+  FOREIGN KEY (airline_id) REFERENCES airlines(id)
 );
 
-create table passengers (
-  id bigint primary key generated always as identity,
-  first_name text not null,
-  last_name text not null,
-  email text unique
+CREATE TABLE passengers (
+  id BIGINT PRIMARY KEY AUTO_INCREMENT,
+  first_name VARCHAR(255) NOT NULL,
+  last_name VARCHAR(255) NOT NULL,
+  email VARCHAR(255) UNIQUE,
+  phone_number VARCHAR(255),
+  password_hash VARCHAR(255)
 );
 
-create table reservations (
-  id bigint primary key generated always as identity,
-  flight_id bigint references flights (id),
-  passenger_id bigint references passengers (id),
-  reservation_date timestamp with time zone default now(),
-  status text not null
+CREATE TABLE reservations (
+  id BIGINT PRIMARY KEY AUTO_INCREMENT,
+  flight_id BIGINT,
+  passenger_id BIGINT,
+  reservation_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  status VARCHAR(255) NOT NULL,
+  FOREIGN KEY (flight_id) REFERENCES flights(id),
+  FOREIGN KEY (passenger_id) REFERENCES passengers(id)
 );
 
-create table seats (
-  id bigint primary key generated always as identity,
-  flight_id bigint references flights (id),
-  seat_number text not null,
-  is_available boolean default true
+CREATE TABLE seats (
+  id BIGINT PRIMARY KEY AUTO_INCREMENT,
+  flight_id BIGINT,
+  seat_number VARCHAR(255) NOT NULL,
+  is_available BOOLEAN DEFAULT TRUE,
+  FOREIGN KEY (flight_id) REFERENCES flights(id)
 );
-
-alter table passengers
-add column phone_number text;
