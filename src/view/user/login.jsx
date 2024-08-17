@@ -2,16 +2,13 @@ import React from "react";
 import "../../index";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import InputAuth from "../components/input-auth";
+import InputAuth from "../../components/input-auth";
 import NavbarAuth from "../../components/navbarAuth";
 import Tooltips from "../../components/tooltip";
 
-const notify = () => toast.success("Inicio de sesión exitoso");
 
 const Login = () => {
-  const handleSubmit = () => {
-    notify();
-  };
+
 
   return (
     <div>
