@@ -30,7 +30,7 @@ const Login = () => {
           >
             Freeway Airlines
           </h2>
-          <InputAuth onSubmit={handleSubmit} />
+          <InputAuth />
           
           <ToastContainer />
         </div>
