@@ -2,18 +2,12 @@ import React from 'react';
 import "../index";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import InputAuth from "../components/input-auth";
-import NavbarAuth from "../components/navbarAuth";
-import Tooltips from "../components/tooltip";
-
-
-const notify = () => toast.success("Registrado exitosamente");
+import InputAuth from "../../components/input-auth";
+import NavbarAuth from "../../components/navbarAuth";
+import Tooltips from "../../components/tooltip";
 
 const Register = () => {
-  const handleSubmit = () => {
-    notify();
-  };
-
+ 
   return (
     <div>
       <NavbarAuth />
@@ -28,7 +22,7 @@ const Register = () => {
           >
             REGISTRATE
           </h1>
-          <InputAuth onSubmit={handleSubmit} />
+          <InputAuth/>
           
           <ToastContainer />
         </div>

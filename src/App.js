@@ -1,21 +1,21 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import Login from './view/login';
+import Login from './view/user/login';
 import Register from './view/user/register';
-import FlightRegistration from './view/fligthRegistration';
-import ReservationTable from './view/reservas';
-import FlightReservation from './view/FligthReservation';
+import FlightRegistration from './view/user/fligthRegistration';
+import ReservationTable from './view/user/reservas';
+import FlightReservation from './view/user/FligthReservation';
 import PaymentForm from './view/user/paymentForm';
-import CheckInForm from './view/checkin';
-import ItineraryTable from './view/Itinerario';
+import CheckInForm from './view/user/checkin';
+import ItineraryTable from './view/user/Itinerario';
 import CardReservation from './view/tarjetasReservas'
 import BoardingPass from './view/user/tarjetaEmbarque';
-import Home from './view/home';
-import PersonData from './view/personData';
-import LoginAdmin from './view/loginAdmin';
-import ItineraryTableAdmin from './view/ItinerarioAdmin';
-import FlightReservationAdmin from './view/FligthReservationAdmin';
-import PaymentFormAdmin from './view/paymentFormAdmin';
+import Home from './view/user/home';
+import PersonData from './view/user/personData';
+import LoginAdmin from './view/admin/loginAdmin';
+import ItineraryTableAdmin from './view/admin/ItinerarioAdmin';
+import FlightReservationAdmin from './view/admin/FligthReservationAdmin';
+import PaymentFormAdmin from './view/admin/paymentFormAdmin';
 import BoardingPassAdmin from './view/admin/tarjetaEmbarqueAdmin';
 function App() {
   return (

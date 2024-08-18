@@ -1,19 +1,14 @@
 import React from "react";
-import InputsPersonales from "../components/inputsPersonales";
-import Navbar from "../components/navbarUser";
-import BackgroundImgUser from "../components/backgroundImgUser";
-import Tooltips from "../components/tooltip";
+import InputsPersonales from "../../components/user/inputsPersonales";
+import Navbar from "../../components/user/navbarUser";
+import BackgroundImgUser from "../../components/user/backgroundImgUser";
+import Tooltips from "../../components/tooltip";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import Migas from "../components/migaspan";
+import Migas from "../../components/migaspan";
 
-const notify = () => toast.success("Confirmación realizada exitosamente");
 
 const PersonData = () => {
-  const handleReservationSubmit = () => {
-    notify();
-  };
-
   return (
     <div>
       <Navbar />
@@ -27,7 +22,7 @@ const PersonData = () => {
           <Migas />
         </div>
 
-        <InputsPersonales onSubmit={handleReservationSubmit} />
+        <InputsPersonales />
         <ToastContainer />
       </div>
     </div>

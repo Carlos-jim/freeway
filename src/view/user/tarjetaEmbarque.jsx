@@ -1,9 +1,9 @@
 // src/components/BoardingPass.js
 import React from "react";
-import airplane from "../public/plane.png";
-import barcode from "../public/bar-code.png";
+import airplane from "../../public/plane.png";
+import barcode from "../../public/bar-code.png";
 import { Link } from "react-router-dom";
-import Navbar from "../components/navbarUser";
+import Navbar from "../../components/user/navbarUser";
 import { motion } from "framer-motion";
 
 const BoardingPass = () => {

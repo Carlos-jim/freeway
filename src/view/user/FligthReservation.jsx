@@ -1,17 +1,14 @@
 import React from "react";
 import InputsReservation from "../components/inputs-Reservation";
-import Navbar from "../components/navbarUser";
-import BackgroundImgUser from "../components/backgroundImgUser";
+import Navbar from "../../components/user/navbarUser";
+import BackgroundImgUser from "../../components/user/backgroundImgUser";
 import Tooltips from "../../components/tooltip";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-const notify = () => toast.success("Reserva realizada exitosamente");
 
 const FlightReservation = () => {
-  const handleReservationSubmit = () => {
-    notify();
-  };
+
 
   return (
     <div>
@@ -23,7 +20,7 @@ const FlightReservation = () => {
           <button className="text-gray-600">Agregar Pasajero ➕</button>
         </div>
         <h2 className="text-xl text-center mb-8">Datos de los Pasajeros</h2>
-        <InputsReservation onSubmit={handleReservationSubmit} />
+        <InputsReservation/>
         <ToastContainer />
       </div>
     </div>

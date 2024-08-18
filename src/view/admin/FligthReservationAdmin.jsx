@@ -1,17 +1,12 @@
 import React from "react";
-import InputsReservationAdmin from "../components/inputs-ReservationAdmin";
-import NavbarAdmin from "../components/navbarAdmin";
-import BackgroundImgUser from "../components/backgroundImgUser";
+import InputsReservationAdmin from "../../components/admin/inputs-ReservationAdmin";
+import NavbarAdmin from "../../components/admin/navbarAdmin";
+import BackgroundImgUser from "../../components/user/backgroundImgUser";
 import Tooltips from "../../components/tooltip";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-const notify = () => toast.success("Reserva realizada exitosamente");
-
 const FlightReservationAdmin = () => {
-  const handleReservationSubmit = () => {
-    notify();
-  };
 
   return (
     <div>
@@ -23,7 +18,7 @@ const FlightReservationAdmin = () => {
           <button className="text-gray-600">Agregar Pasajero ➕</button>
         </div>
         <h2 className="text-xl text-center mb-8">Datos de los Pasajeros</h2>
-        <InputsReservationAdmin onSubmit={handleReservationSubmit} />
+        <InputsReservationAdmin />
         <ToastContainer />
       </div>
     </div>

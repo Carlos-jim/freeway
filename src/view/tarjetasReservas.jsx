@@ -1,6 +1,6 @@
 import React from "react";
-import Navbar from "../components/navbarUser";
-import BackgroundImgUser from "../components/backgroundImgUser";
+import Navbar from "../components/user/navbarUser";
+import BackgroundImgUser from "../components/user/backgroundImgUser";
 import { Link } from "react-router-dom";
 import Tooltips from "../components/tooltip";
 

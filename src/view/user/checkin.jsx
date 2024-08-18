@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
-import Navbar from "../components/navbarUser";
-import BackgroundImgUser from "../components/backgroundImgUser";
+import Navbar from "../../components/user/navbarUser";
+import BackgroundImgUser from "../../components/user/backgroundImgUser";
 import { Link, useNavigate } from "react-router-dom";
 import Migas from "../../components/migaspan";
 

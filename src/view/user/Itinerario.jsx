@@ -2,9 +2,9 @@ import React, { useState } from "react";
 import { motion } from "framer-motion";
 import "../index.css";
 import "../components/backgroundImgUser";
-import BackgroundImgUser from "../components/backgroundImgUser";
-import Navbar from "../components/navbarUser";
-import DataTableUser from "../components/datatableUser"; // Importa el nuevo componente
+import BackgroundImgUser from "../../components/user/backgroundImgUser";
+import Navbar from "../../components/user/navbarUser";
+import DataTableUser from "../../components/user/datatableUser"; // Importa el nuevo componente
 
 const ItineraryTable = () => {
   const data = [

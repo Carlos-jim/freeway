@@ -1,18 +1,14 @@
 import React from "react";
-import "../index";
+import "../../index.css";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import InputAuth from "../components/input-auth";
-import NavbarAuth from "../components/navbarAuth";
-import Tooltips from "../components/tooltip";
-import InputAuthAdmin from "../components/input-authAdmin";
-
-const notify = () => toast.success("Inicio de sesión exitoso");
+import InputAuth from "../../components/input-auth";
+import NavbarAuth from "../../components/navbarAuth";
+import Tooltips from "../../components/tooltip";
+import InputAuthAdmin from "../../components/admin/input-authAdmin";
 
 const LoginAdmin = () => {
-  const handleSubmit = () => {
-    notify();
-  };
+
 
   return (
     <div>
@@ -34,7 +30,7 @@ const LoginAdmin = () => {
           >
             Freeway Airlines
           </h2>
-          <InputAuthAdmin onSubmit={handleSubmit} />
+          <InputAuthAdmin/>
           <ToastContainer />
         </div>
       </div>

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
-import BackgroundImgUser from "../components/backgroundImgUser";
-import Navbar from "../components/navbarUser";
+import BackgroundImgUser from "../../components/user/backgroundImgUser";
+import Navbar from "../../components/user/navbarUser";
 import { Link, useNavigate } from "react-router-dom";
 
 const Home = () => {

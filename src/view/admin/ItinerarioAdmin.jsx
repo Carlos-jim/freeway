@@ -1,10 +1,9 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
-import "../index.css";
-import "../components/backgroundImgUser";
-import BackgroundImgUser from "../components/backgroundImgUser";
-import NavbarAdmin from "../components/navbarAdmin";
-import DataTableAdminItinerario from "../components/datatableAdminItinerario"; // Importa el nuevo componente
+import "../../index.css";
+import BackgroundImgUser from "../../components/user/backgroundImgUser";
+import NavbarAdmin from "../../components/admin/navbarAdmin";
+import DataTableAdminItinerario from "../../components/admin/datatableAdminItinerario"; // Importa el nuevo componente
 
 const ItineraryTableAdmin = () => {
   const data = [

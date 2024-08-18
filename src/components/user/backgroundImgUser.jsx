@@ -1,5 +1,5 @@
 import React from "react";
-import backgroundImage from "../public/avion2.avif"; // Asegúrate de que la imagen esté en el directorio src
+import backgroundImage from "../../public/avion2.avif"; // Asegúrate de que la imagen esté en el directorio src
 import { motion } from "framer-motion";
 const BackgroundImgUser = () => {
   return (

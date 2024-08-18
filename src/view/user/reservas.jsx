@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import TableAdmin from "../components/datatableAdmin";
-import NavbarAdmin from "../components/navbarAdmin";
-import Tooltips from "../components/tooltip";
+import TableAdmin from "../../components/admin/datatableAdmin";
+import NavbarAdmin from "../../components/admin/navbarAdmin";
+import Tooltips from "../../components/tooltip";
 
 const ReservationTable = () => {
   const [filters, setFilters] = useState({

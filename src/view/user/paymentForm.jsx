@@ -2,11 +2,11 @@ import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link, useNavigate } from "react-router-dom";
 
-import visaLogo from "../public/visa.png";
-import Navbar from "../components/navbarUser";
+import visaLogo from "../../public/visa.png";
+import Navbar from "../../components/user/navbarUser";
 import Tooltips from "../../components/tooltip";
-import "../public/paymentForm.css"; // Asegúrate de tener esta hoja de estilos
-import cash from "../public/dollar.png";
+import "../../public/paymentForm.css"; // Asegúrate de tener esta hoja de estilos
+import cash from "../../public/dollar.png";
 
 const PaymentForm = () => {
   const [showPaymentFields, setShowPaymentFields] = useState(false);
