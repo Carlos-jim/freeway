@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
-import "../index.css";
-import "../components/backgroundImgUser";
+import "../../index.css";
 import BackgroundImgUser from "../../components/user/backgroundImgUser";
 import Navbar from "../../components/user/navbarUser";
 import DataTableUser from "../../components/user/datatableUser"; // Importa el nuevo componente

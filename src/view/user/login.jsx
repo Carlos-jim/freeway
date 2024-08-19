@@ -2,7 +2,7 @@ import React from "react";
 import "../../index";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import InputAuth from "../../components/input-auth";
+import InputAuthLogin from "../../components/inputAuth-login";
 import NavbarAuth from "../../components/navbarAuth";
 import Tooltips from "../../components/tooltip";
 
@@ -30,7 +30,7 @@ const Login = () => {
           >
             Freeway Airlines
           </h2>
-          <InputAuth />
+          <InputAuthLogin />
           
           <ToastContainer />
         </div>

@@ -1,5 +1,5 @@
 import React from "react";
-import InputsReservation from "../components/inputs-Reservation";
+import InputsReservation from "../../components/user/inputs-Reservation";
 import Navbar from "../../components/user/navbarUser";
 import BackgroundImgUser from "../../components/user/backgroundImgUser";
 import Tooltips from "../../components/tooltip";

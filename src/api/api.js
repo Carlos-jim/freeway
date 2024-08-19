@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { PORT } from '../../backend/config/config.js';
+export const PORT = process.env.PORT || 3001;
 
 const api = axios.create({
   baseURL: `http://localhost:${PORT}/api`, 

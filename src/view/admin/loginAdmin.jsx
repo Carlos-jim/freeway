@@ -2,7 +2,7 @@ import React from "react";
 import "../../index.css";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import InputAuth from "../../components/input-auth";
+import InputAuthLogin from "../../components/inputAuth-login";
 import NavbarAuth from "../../components/navbarAuth";
 import Tooltips from "../../components/tooltip";
 import InputAuthAdmin from "../../components/admin/input-authAdmin";
