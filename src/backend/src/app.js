@@ -4,6 +4,7 @@ import {PORT_FRONTEND} from '../config/config.js'
 import pong from './router/ping.js'
 import createPassenger from './router/passengerRegister/passengerRegister.router.js'
 import createFlight from './router/registerFlight.router/registerFlight.router.js'
+import getFlights from './router/getFlight.router/getFlight.router.js'
 const app = express();
 
 // Configuración básica de CORS
@@ -17,6 +18,7 @@ app.use(express.json());
 
 app.use('/api', createPassenger)
 app.use('/api', createFlight)
+app.use('/api', getFlights)
 app.use(pong)
 
 
