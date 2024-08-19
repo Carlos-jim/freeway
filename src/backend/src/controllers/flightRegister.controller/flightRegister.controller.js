@@ -9,9 +9,9 @@ export const registerFlightController = async (req, res) => {
     }
 
     try {
-        const { airline_id, flight_number, departure_airport, arrival_airport, departure_time, arrival_time } = req.body;
+        const { airline_id, flight_cost, flight_number, departure_airport, arrival_airport, departure_time, arrival_time } = req.body;
         
-        const insert_data = await registerFlight({ airline_id, flight_number, departure_airport, arrival_airport, departure_time, arrival_time });
+        const insert_data = await registerFlight({ airline_id, flight_cost, flight_number, departure_airport, arrival_airport, departure_time, arrival_time });
 
         res.status(201).json({ message: 'Vuelo registrado exitosamente', vueloId: insert_data.insertId });
     } catch (error) {

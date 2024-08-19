@@ -16,6 +16,7 @@ CREATE TABLE flights (
   arrival_airport VARCHAR(255) NOT NULL,
   departure_time TIMESTAMP NOT NULL,
   arrival_time TIMESTAMP NOT NULL,
+  flight_cost VARCHAR(255) NOT NULL,
   FOREIGN KEY (airline_id) REFERENCES airlines(id)
 );
 
