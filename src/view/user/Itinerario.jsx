@@ -1,55 +1,21 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 import "../../index.css";
+import api from '../../api/api.js'
 import BackgroundImgUser from "../../components/user/backgroundImgUser";
 import Navbar from "../../components/user/navbarUser";
 import DataTableUser from "../../components/user/datatableUser"; // Importa el nuevo componente
 
 const ItineraryTable = () => {
-  const data = [
-    {
-      fechaSalida: "12/06/2024 19:00HRS",
-      origen: "PORLAMAR",
-      destino: "LOS ROQUES",
-      tipo: "ECONOMICA",
-      precio: "$150",
-    },
-    {
-      fechaSalida: "12/06/2024 15:00HRS",
-      origen: "MAIQUETIA",
-      destino: "CANAIMA",
-      tipo: "ECONOMICA",
-      precio: "$550",
-    },
-    {
-      fechaSalida: "11/06/2024 09:00HRS",
-      origen: "LOS ROQUES",
-      destino: "PTO. ORDAZ",
-      tipo: "ECONOMICA",
-      precio: "$350",
-    },
-    {
-      fechaSalida: "10/06/2024 00:00HRS",
-      origen: "PTO. ORDAZ",
-      destino: "CANAIMA",
-      tipo: "ECONOMICA",
-      precio: "$350",
-    },
-    {
-      fechaSalida: "10/06/2024 05:00HRS",
-      origen: "CANAIMA",
-      destino: "LOS ROQUES",
-      tipo: "ECONOMICA",
-      precio: "$250",
-    },
-    {
-      fechaSalida: "09/06/2024 13:00HRS",
-      origen: "PORLAMAR",
-      destino: "MAIQUETIA",
-      tipo: "ECONOMICA",
-      precio: "$200",
-    },
-  ];
+  const data = async () => {
+    try {
+      const response = await api.get('/get-flights');
+      return response.data;
+    } catch (error) {
+      console.error(error);
+      return [];
+    }
+  }
 
   const [origenFilter, setOrigenFilter] = useState("");
   const [destinoFilter, setDestinoFilter] = useState("");
