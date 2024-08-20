@@ -5,14 +5,22 @@ import { useAuth } from './AuthProvider.js';
 const PrivateRoute = ({ element, roles }) => {
   const { user } = useAuth();
 
+  // Si aún no se ha determinado el estado del usuario, muestra una pantalla de carga
+  if (user === undefined) {
+    return <div>Loading...</div>;
+  }
+
+  // Si no hay usuario autenticado, redirige a login
   if (!user) {
     return <Navigate to="/login" />;
   }
 
-  if (roles && roles.indexOf(user.rol) === -1) {
+  // Si el usuario no tiene el rol requerido, redirige a login
+  if (roles && !roles.includes(user.rol)) {
     return <Navigate to="/login" />;
   }
 
+  // Si todo está bien, renderiza el componente solicitado
   return element;
 };
 

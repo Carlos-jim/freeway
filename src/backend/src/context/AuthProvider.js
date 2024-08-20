@@ -1,25 +1,33 @@
-import React, { createContext, useContext, useState, useEffect } from 'react';
-import { jwtDecode } from 'jwt-decode';
+import React, { createContext, useContext, useState } from 'react';
+import {jwtDecode} from 'jwt-decode';
 
 const AuthContext = createContext();
 
 export const useAuth = () => useContext(AuthContext);
 
 export const AuthProvider = ({ children }) => {
-  const [user, setUser] = useState(null);
-
-  useEffect(() => {
+  const [user, setUser] = useState(() => {
     const token = localStorage.getItem('token');
     if (token) {
-      const decodedToken = jwtDecode(token);
-      setUser(decodedToken);
+      try {
+        return jwtDecode(token);
+      } catch (error) {
+        console.error("Token decoding failed:", error);
+        localStorage.removeItem('token');
+        return null;
+      }
     }
-  }, []);
+    return null;
+  });
 
   const login = (token) => {
-    const decodedToken = jwtDecode(token);
-    setUser(decodedToken);
-    localStorage.setItem('token', token);
+    try {
+      const decodedToken = jwtDecode(token);
+      setUser(decodedToken);
+      localStorage.setItem('token', token);
+    } catch (error) {
+      console.error("Token decoding failed on login:", error);
+    }
   };
 
   const logout = () => {
