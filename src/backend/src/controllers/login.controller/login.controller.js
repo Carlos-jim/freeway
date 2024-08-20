@@ -3,8 +3,6 @@ import bcrypt from 'bcryptjs';
 import { validationResult } from "express-validator";
 import jwt from "jsonwebtoken"
 
-
-
 export const findUserByEmailController = async (req, res) => {
     const errors = validationResult(req);
 

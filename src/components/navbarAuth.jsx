@@ -9,11 +9,6 @@ const NavbarAuth = () => {
           <span className="text-[#6147FF]">Freeway Airlines</span>
         </div>
         <div className="hidden md:flex items-center space-x-4">
-          <Link
-            to="/"
-          >
-            🏠 Inicio
-          </Link>
           <Link to="/login">
             <a
               href="#iniciar-sesion"

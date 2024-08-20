@@ -1,9 +1,46 @@
-import React, { useState, useCallback } from "react";
+import React, { useState } from "react";
 import { motion } from "framer-motion";
+import { useNavigate } from "react-router-dom";  // Para redirigir
 import gmail from "../public/google.png";
-import api from "../api/api.js";
+import api from "../api/api.js";  // Asegúrate de que esta es la ruta correcta de tu API
+import { jwtDecode } from 'jwt-decode';
 
 const InputAuthLogin = () => {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const navigate = useNavigate();
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      // Realizamos la petición a la API de login
+      const response = await api.post('/login', {
+        email: email,
+        password_hash: password
+      });
+
+      if (response.status === 200) {
+        const { token } = response.data;
+        // Guardamos el token en localStorage
+        localStorage.setItem('token', token);
+        
+        // Decodificamos el token para obtener el rol del usuario
+        const { rol } = jwtDecode(token);
+
+        // Redirigimos al usuario según su rol
+        if (rol === 'admin') {
+          navigate('/itinerario-admin');
+        } else {
+          navigate('/home');
+        }
+      } else {
+        alert("Error en el inicio de sesión");
+      }
+    } catch (error) {
+      console.error("Error en el inicio de sesión:", error);
+      alert("Correo o contraseña incorrectos.");
+    }
+  };
 
   return (
     <motion.form
@@ -12,6 +49,7 @@ const InputAuthLogin = () => {
       transition={{ duration: 0.5 }}
       className="grid grid-cols-2 gap-4"
       aria-labelledby="login-form-title"
+      onSubmit={handleSubmit}  // Vinculamos la función handleSubmit al formulario
     >
       <div className="mb-4 col-span-2">
         <motion.label
@@ -31,8 +69,8 @@ const InputAuthLogin = () => {
         name="email"
         type="email"
         placeholder="tuUsuario@freewayairlines.com"
-        value=""
-        onChange=""
+        value={email}
+        onChange={(e) => setEmail(e.target.value)}  // Actualizamos el estado del correo
         className="col-span-2"
       />
       <Input
@@ -41,8 +79,8 @@ const InputAuthLogin = () => {
         name="password_hash"
         type="password"
         placeholder="*******"
-        value=""
-        onChange=""
+        value={password}
+        onChange={(e) => setPassword(e.target.value)}  // Actualizamos el estado de la contraseña
         className="col-span-2"
       />
 

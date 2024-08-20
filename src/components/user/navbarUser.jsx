@@ -49,24 +49,6 @@ const Navbar = () => {
           >
             👤 Chequeo
           </Link>
-          <Link to="/login">
-            <a
-              href="#iniciar-sesion"
-              className="text-gray-700 hover:text-gray-900"
-            >
-              Iniciar sesión
-            </a>
-          </Link>
-
-          <Link to="/registro">
-            <a
-              href="#signup"
-              className="text-white px-4 py-2 rounded-md hover:bg-purple-700"
-              style={{ background: "#6147FF" }}
-            >
-              Registrate
-            </a>
-          </Link>
         </div>
         <div className="md:hidden">
           <button
