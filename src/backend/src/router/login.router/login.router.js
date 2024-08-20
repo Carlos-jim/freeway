@@ -3,6 +3,6 @@ import { findUserByEmailController } from '../../controllers/login.controller/lo
 
 const router = Router();
 
-router.get('/login', findUserByEmailController);
+router.post('/login', findUserByEmailController);
 
 export default router;

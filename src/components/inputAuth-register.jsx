@@ -10,7 +10,7 @@ const InputAuthRegister = () => {
     phone_number: "",
     email: "",
     password_hash: "",
-    rol:"",
+    rol:"user",
   });
 
   const [message, setMessage] = useState(null);
