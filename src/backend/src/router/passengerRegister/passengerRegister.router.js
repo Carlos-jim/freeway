@@ -11,6 +11,7 @@ router.post('/register', [
     check('first_name').notEmpty(),
     check('last_name').notEmpty(),
     check('phone_number', 'El formato debe ser tipo numerico, eg 0412133113').isNumeric(),
+    check('rol', 'El formato debe ser tipo string').isString()
 ], createPassengerUserController)
 
 

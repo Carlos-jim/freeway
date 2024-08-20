@@ -10,9 +10,9 @@ export const createPassengerUserController = async (req, res) => {
     }
 
     try {
-        const {first_name, last_name, email, phone_number, password_hash} = req.body
+        const {first_name, last_name, email, phone_number, password_hash, rol} = req.body
 
-        const insert_data = await createPassengerUser({first_name, last_name, email, phone_number, password_hash})
+        const insert_data = await createPassengerUser({first_name, last_name, email, phone_number, password_hash, rol})
 
         res.status(201).json({ message: 'Usuario registrado exitosamente', userId: insert_data.insertId });
     } catch (error) {

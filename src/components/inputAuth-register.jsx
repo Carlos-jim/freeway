@@ -10,6 +10,7 @@ const InputAuthRegister = () => {
     phone_number: "",
     email: "",
     password_hash: "",
+    rol:"",
   });
 
   const [message, setMessage] = useState(null);
@@ -35,6 +36,7 @@ const InputAuthRegister = () => {
           phone_number: "",
           email: "",
           password_hash: "",
+          rol:"user",
         });
       } else {
         setMessage({ type: "error", text: response.data.message || "Error añadiendo usuario." });
