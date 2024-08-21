@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-
+import LogoutImg from "../../public/exit.png";
+import { useAuth } from "../../backend/src/context/AuthProvider.js"; 
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const location = useLocation();
+  const { logout } = useAuth(); 
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
@@ -49,6 +51,13 @@ const Navbar = () => {
           >
             👤 Chequeo
           </Link>
+
+          <button
+            onClick={logout} // Llama a la función logout cuando se hace clic en la imagen
+            className="w-5 h-5"
+          >
+            <img src={LogoutImg} alt="Logout" />
+          </button>
         </div>
         <div className="md:hidden">
           <button
@@ -80,7 +89,7 @@ const Navbar = () => {
               location.pathname === "/inicio" ? "text-hover-link" : "text-gray-700"
             } block hover:text-hover-link`}
           >
-           🏠 Inicio
+            🏠 Inicio
           </Link>
           <Link
             to="/reservar-vuelo"

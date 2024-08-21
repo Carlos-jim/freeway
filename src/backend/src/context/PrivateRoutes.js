@@ -12,12 +12,12 @@ const PrivateRoute = ({ element, roles }) => {
 
   // Si no hay usuario autenticado, redirige a login
   if (!user) {
-    return <Navigate to="/login" />;
+    return <Navigate to="/" />;
   }
 
   // Si el usuario no tiene el rol requerido, redirige a login
   if (roles && !roles.includes(user.rol)) {
-    return <Navigate to="/login" />;
+    return <Navigate to="/" />;
   }
 
   // Si todo está bien, renderiza el componente solicitado
