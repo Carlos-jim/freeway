@@ -20,7 +20,7 @@ const Navbar = () => {
         </div>
         <div className="hidden md:flex items-center space-x-4">
           <Link
-            to="/"
+            to="/home"
             className={`${
               location.pathname === "/" ? "text-hover-link" : "text-gray-700"
             } hover:text-hover-link`}
@@ -84,7 +84,7 @@ const Navbar = () => {
       {isOpen && (
         <div className="md:hidden mt-2 space-y-2">
           <Link
-            to="/inicio"
+            to="/home"
             className={`${
               location.pathname === "/inicio" ? "text-hover-link" : "text-gray-700"
             } block hover:text-hover-link`}

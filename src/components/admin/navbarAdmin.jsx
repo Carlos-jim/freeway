@@ -1,10 +1,13 @@
 import React, { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
+import LogoutImg from "../../public/exit.png"
+import {useAuth} from "../../backend/src/context/AuthProvider"
 
 
 const NavbarAdmin = () => {
   const [isOpen, setIsOpen] = useState(false);
   const location = useLocation();
+  const { logout } = useAuth(); 
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
@@ -18,7 +21,7 @@ const NavbarAdmin = () => {
         </div>
         <div className="hidden md:flex items-center space-x-4">
           <Link
-            to="/reservaciones"
+            to="/reservar-vuelo-admin"
             className={`${
               location.pathname === "/reservaciones" ? "text-hover-link" : "text-gray-700"
             } hover:text-hover-link`}
@@ -41,6 +44,12 @@ const NavbarAdmin = () => {
           >
             💸 Vender boleto
           </Link>
+          <button
+            onClick={logout} // Llama a la función logout cuando se hace clic en la imagen
+            className="w-5 h-5"
+          >
+            <img src={LogoutImg} alt="Logout" />
+          </button>
         </div>
         <div className="md:hidden">
           <button
@@ -67,37 +76,36 @@ const NavbarAdmin = () => {
       {isOpen && (
         <div className="md:hidden mt-2 space-y-2">
           <Link
-            to="/inicio"
+            to="/reservar-vuelo-admin"
             className={`${
-              location.pathname === "/inicio" ? "text-hover-link" : "text-gray-700"
-            } block hover:text-hover-link`}
+              location.pathname === "/reservaciones" ? "text-hover-link" : "text-gray-700"
+            } hover:text-hover-link`}
           >
-           🏠 Inicio
+            📝 Reservaciones
           </Link>
           <Link
-            to="/reservar-vuelo"
+            to="/registrar-vuelo"
             className={`${
-              location.pathname === "/reservar-vuelo" ? "text-hover-link" : "text-gray-700"
-            } block hover:text-hover-link`}
+              location.pathname === "/registrar-vuelo" ? "text-hover-link" : "text-gray-700"
+            } hover:text-hover-link`}
           >
-            Reservar
+            🛫 Registrar vuelo
           </Link>
           <Link
-            to="/itinerario"
+            to="/itinerario-admin"
             className={`${
-              location.pathname === "/itinerario" ? "text-hover-link" : "text-gray-700"
-            } block hover:text-hover-link`}
+              location.pathname === "/itinerario-admin" ? "text-hover-link" : "text-gray-700"
+            } hover:text-hover-link`}
           >
-            Itinerario
+            💸 Vender boleto
           </Link>
-          <Link
-            to="/chequeo"
-            className={`${
-              location.pathname === "/chequeo" ? "text-hover-link" : "text-gray-700"
-            } block hover:text-hover-link`}
+          <button
+            onClick={logout} // Llama a la función logout cuando se hace clic en la imagen
+            className="w-5 h-5"
           >
-            👤 Chequeo
-          </Link>
+            <img src={LogoutImg} alt="Logout" />
+          </button>
+          
         </div>
       )}
     </nav>
