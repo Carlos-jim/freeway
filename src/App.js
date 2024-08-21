@@ -11,6 +11,7 @@ import ItineraryTable from "./view/user/Itinerario";
 import CardReservation from "./view/tarjetasReservas";
 import BoardingPass from "./view/user/tarjetaEmbarque";
 import Home from "./view/user/home";
+import RegisterAdmin from "./view/admin/registerAdmin";
 import PersonData from "./view/user/personData";
 import LoginAdmin from "./view/admin/loginAdmin";
 import ItineraryTableAdmin from "./view/admin/ItinerarioAdmin";
@@ -28,6 +29,8 @@ function App() {
           <Routes>
             <Route path="/" element={<Login />} />
             <Route path="/registro" element={<Register />} />
+            <Route path="/registro-admin" element={<RegisterAdmin />} />
+            <Route path="/login-admin" element={<LoginAdmin />} />
 
             <Route
               path="/embarque-admin"

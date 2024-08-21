@@ -1,36 +1,44 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
+import api from "../../api/api.js"
+import { jwtDecode } from 'jwt-decode';
+
 
 const InputAuthAdmin = () => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [errors, setErrors] = useState({ email: "", password: "" });
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
   const navigate = useNavigate();
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      // Realizamos la petición a la API de login
+      const response = await api.post('/login', {
+        email: email,
+        password_hash: password
+      });
 
-    let valid = true;
-    const newErrors = { email: "", password: "" };
+      if (response.status === 200) {
+        const { token } = response.data;
+        // Guardamos el token en localStorage
+        localStorage.setItem('token', token);
+        
+        // Decodificamos el token para obtener el rol del usuario
+        const { rol } = jwtDecode(token);
 
-    // Validar que el email sea un correo electrónico válido
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(email)) {
-      newErrors.email = "Ingrese un correo electrónico válido";
-      valid = false;
-    }
-
-    if (password.length <= 3) {
-      newErrors.password = "La contraseña debe tener más de 3 caracteres";
-      valid = false;
-    }
-
-    setErrors(newErrors);
-
-    if (valid) {
-      // Redirigir a /login si la validación es exitosa
-      navigate("/reservaciones");
+        // Redirigimos al usuario según su rol
+        if (rol === 'admin') {
+          navigate('/itinerario-admin');
+        } else {
+          navigate('/home');
+        }
+      } else {
+        alert("Error en el inicio de sesión");
+      }
+    } catch (error) {
+      console.error("Error en el inicio de sesión:", error);
+      alert("Correo o contraseña incorrectos.");
     }
   };
 
@@ -71,9 +79,7 @@ const InputAuthAdmin = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.3 }}
         />
-        {errors.email && (
-          <p className="text-red-500 text-xs italic">{errors.email}</p>
-        )}
+  
       </div>
       <div className="mb-6">
         <motion.label
@@ -95,9 +101,6 @@ const InputAuthAdmin = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.4 }}
         />
-        {errors.password && (
-          <p className="text-red-500 text-xs italic">{errors.password}</p>
-        )}
       </div>
       <div className="flex items-center justify-center">
         <motion.button
