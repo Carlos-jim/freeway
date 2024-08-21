@@ -1,38 +1,43 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import "../../index.css";
-import api from '../../api/api.js'
+import api from '../../api/api.js';
 import BackgroundImgUser from "../../components/user/backgroundImgUser";
 import Navbar from "../../components/user/navbarUser";
 import DataTableUser from "../../components/user/datatableUser"; // Importa el nuevo componente
 
 const ItineraryTable = () => {
-  const data = async () => {
-    try {
-      const response = await api.get('/get-flights');
-      return response.data;
-    } catch (error) {
-      console.error(error);
-      return [];
-    }
-  }
-
+  const [data, setData] = useState([]);
   const [origenFilter, setOrigenFilter] = useState("");
   const [destinoFilter, setDestinoFilter] = useState("");
   const [precioMax, setPrecioMax] = useState(600);
 
-  const uniqueOrigenes = [...new Set(data.map((item) => item.origen))];
-  const uniqueDestinos = [...new Set(data.map((item) => item.destino))];
+  // useEffect para obtener datos desde la API al montar el componente
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await api.get('/get-flights');
+        setData(response.data);
+      } catch (error) {
+        console.error("Error al obtener los datos:", error);
+      }
+    };
+
+    fetchData();
+  }, []);
+
+  const uniqueOrigenes = [...new Set(data.map((item) => item.departure_airport))];
+  const uniqueDestinos = [...new Set(data.map((item) => item.arrival_airport))];
 
   const dataWithNumericPrices = data.map((item) => ({
     ...item,
-    precio: parseFloat(item.precio.replace("$", "")),
+    flight_cost: parseFloat(item.flight_cost.replace("$", "")),
   }));
 
   const filteredData = dataWithNumericPrices.filter((item) => {
-    const matchOrigen = origenFilter ? item.origen === origenFilter : true;
-    const matchDestino = destinoFilter ? item.destino === destinoFilter : true;
-    const matchPrecio = item.precio <= precioMax;
+    const matchOrigen = origenFilter ? item.departure_airport === origenFilter : true;
+    const matchDestino = destinoFilter ? item.arrival_airport === destinoFilter : true;
+    const matchPrecio = item.flight_cost <= precioMax;
     return matchOrigen && matchDestino && matchPrecio;
   });
 
