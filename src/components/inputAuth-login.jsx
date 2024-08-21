@@ -31,7 +31,7 @@ const InputAuthLogin = () => {
         if (rol === 'admin') {
           navigate('/itinerario-admin');
         } else {
-          navigate('/');
+          navigate('/home');
         }
       } else {
         alert("Error en el inicio de sesión");

@@ -26,7 +26,7 @@ function App() {
       <Router>
         <div className="App">
           <Routes>
-            <Route path="/login" element={<Login />} />
+            <Route path="/" element={<Login />} />
             <Route path="/registro" element={<Register />} />
 
             <Route
@@ -75,7 +75,7 @@ function App() {
               }
             />
 
-            <Route path="/"
+            <Route path="/home"
              element={
               <PrivateRoute element={<Home />} roles={["user"]} />
             } 
