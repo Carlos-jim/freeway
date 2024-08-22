@@ -22,10 +22,7 @@ CREATE TABLE flights (
 
 CREATE TABLE passengers (
   id BIGINT PRIMARY KEY AUTO_INCREMENT,
-  first_name VARCHAR(255) NOT NULL,
-  last_name VARCHAR(255) NOT NULL,
   email VARCHAR(255) UNIQUE,
-  phone_number VARCHAR(255),
   password_hash VARCHAR(255),
   rol ENUM('user', 'admin')
 );
@@ -33,11 +30,12 @@ CREATE TABLE passengers (
 CREATE TABLE reservations (
   id BIGINT PRIMARY KEY AUTO_INCREMENT,
   flight_id BIGINT,
-  passenger_id BIGINT,
+  firts_name VARCHAR(255) NOT NULL,
+  last_name VARCHAR(255) NOT NULL,
+  phone_number VARCHAR(255) NOT NULL,
   reservation_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
   status VARCHAR(255) NOT NULL,
-  FOREIGN KEY (flight_id) REFERENCES flights(id),
-  FOREIGN KEY (passenger_id) REFERENCES passengers(id)
+  FOREIGN KEY (flight_id) REFERENCES flights(id)
 );
 
 CREATE TABLE seats (

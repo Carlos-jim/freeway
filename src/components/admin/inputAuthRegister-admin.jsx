@@ -5,9 +5,6 @@ import api from "../../api/api.js";
 
 const InputAuthRegister = () => {
   const [formData, setFormData] = useState({
-    first_name: "",
-    last_name: "",
-    phone_number: "",
     email: "",
     password_hash: "",
     rol:"admin",
@@ -31,9 +28,6 @@ const InputAuthRegister = () => {
       if (response.status === 201) {
         setMessage({ type: "success", text: "Usuario añadido exitosamente!" });
         setFormData({
-          first_name: "",
-          last_name: "",
-          phone_number: "",
           email: "",
           password_hash: "",
           rol:"admin",
@@ -67,34 +61,6 @@ const InputAuthRegister = () => {
           Accede al sistema
         </motion.label>
       </div>
-      
-      <Input
-        label="Nombre"
-        id="first_name"
-        name="first_name"
-        type="text"
-        placeholder="Jose"
-        value={formData.first_name}
-        onChange={handleChange}
-      />
-      <Input
-        label="Apellido"
-        id="last_name"
-        name="last_name"
-        type="text"
-        placeholder="Rodriguez"
-        value={formData.last_name}
-        onChange={handleChange}
-      />
-      <Input
-        label="Número de teléfono"
-        id="phone_number"
-        name="phone_number"
-        type="text"
-        placeholder="0424231131"
-        value={formData.phone_number}
-        onChange={handleChange}
-      />
       <Input
         label="Correo electrónico"
         id="email"
