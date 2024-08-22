@@ -1,74 +1,44 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import "../../index.css";
+import api from "../../api/api.js"
 import BackgroundImgUser from "../../components/user/backgroundImgUser";
 import NavbarAdmin from "../../components/admin/navbarAdmin";
-import DataTableAdminItinerario from "../../components/admin/datatableAdminItinerario"; // Importa el nuevo componente
+import DataTableItinerario from "../../components/user/datatableItinerario.jsx";
 
 const ItineraryTableAdmin = () => {
-  const data = [
-    {
-      fechaSalida: "12/06/2024 19:00HRS",
-      origen: "PORLAMAR",
-      destino: "LOS ROQUES",
-      tipo: "ECONOMICA",
-      precio: "$150",
-    },
-    {
-      fechaSalida: "12/06/2024 15:00HRS",
-      origen: "MAIQUETIA",
-      destino: "CANAIMA",
-      tipo: "ECONOMICA",
-      precio: "$550",
-    },
-    {
-      fechaSalida: "11/06/2024 09:00HRS",
-      origen: "LOS ROQUES",
-      destino: "PTO. ORDAZ",
-      tipo: "ECONOMICA",
-      precio: "$350",
-    },
-    {
-      fechaSalida: "10/06/2024 00:00HRS",
-      origen: "PTO. ORDAZ",
-      destino: "CANAIMA",
-      tipo: "ECONOMICA",
-      precio: "$350",
-    },
-    {
-      fechaSalida: "10/06/2024 05:00HRS",
-      origen: "CANAIMA",
-      destino: "LOS ROQUES",
-      tipo: "ECONOMICA",
-      precio: "$250",
-    },
-    {
-      fechaSalida: "09/06/2024 13:00HRS",
-      origen: "PORLAMAR",
-      destino: "MAIQUETIA",
-      tipo: "ECONOMICA",
-      precio: "$200",
-    },
-  ];
-
+  const[data, setData] = useState([]);
   const [origenFilter, setOrigenFilter] = useState("");
   const [destinoFilter, setDestinoFilter] = useState("");
   const [precioMax, setPrecioMax] = useState(600);
 
-  const uniqueOrigenes = [...new Set(data.map((item) => item.origen))];
-  const uniqueDestinos = [...new Set(data.map((item) => item.destino))];
+  useEffect(() =>{
+    const fetchData = async () => {
+      try {
+        const response = await api.get('/get-flights');
+        setData(response.data);
+      } catch (error) {
+        console.error("Error al obtener los datos:", error);
+      }
+    };
+    fetchData();
+  }, [])
+
+  const uniqueOrigenes = [...new Set(data.map((item) => item.departure_airport))];
+  const uniqueDestinos = [...new Set(data.map((item) => item.arrival_airport))];
 
   const dataWithNumericPrices = data.map((item) => ({
     ...item,
-    precio: parseFloat(item.precio.replace("$", "")),
+    flight_cost: parseFloat(item.flight_cost.replace("$", "")),
   }));
 
   const filteredData = dataWithNumericPrices.filter((item) => {
-    const matchOrigen = origenFilter ? item.origen === origenFilter : true;
-    const matchDestino = destinoFilter ? item.destino === destinoFilter : true;
-    const matchPrecio = item.precio <= precioMax;
+    const matchOrigen = origenFilter ? item.departure_airport === origenFilter : true;
+    const matchDestino = destinoFilter ? item.arrival_airport === destinoFilter : true;
+    const matchPrecio = item.flight_cost <= precioMax;
     return matchOrigen && matchDestino && matchPrecio;
   });
+
 
   return (
     <div>
@@ -126,7 +96,7 @@ const ItineraryTableAdmin = () => {
             />
           </div>
         </motion.div>
-        <DataTableAdminItinerario data={filteredData} />
+        <DataTableItinerario data={filteredData} />
       </div>
     </div>
   );

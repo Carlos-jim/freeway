@@ -95,7 +95,7 @@ function App() {
               element={
                 <PrivateRoute
                   element={<FlightReservation />}
-                  roles={["user"]}
+                  roles={["user", "admin"]}
                 />
               }
             />

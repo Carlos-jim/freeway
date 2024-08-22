@@ -4,7 +4,7 @@ import "../../index.css";
 import api from '../../api/api.js';
 import BackgroundImgUser from "../../components/user/backgroundImgUser";
 import Navbar from "../../components/user/navbarUser";
-import DataTableUser from "../../components/user/datatableUser"; // Importa el nuevo componente
+import DataTableItinerario from "../../components/user/datatableItinerario.jsx"; // Importa el nuevo componente
 
 const ItineraryTable = () => {
   const [data, setData] = useState([]);
@@ -97,7 +97,7 @@ const ItineraryTable = () => {
             />
           </div>
         </motion.div>
-        <DataTableUser data={filteredData} />
+        <DataTableItinerario data={filteredData} />
       </div>
     </div>
   );

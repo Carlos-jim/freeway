@@ -1,7 +1,7 @@
 import React, { useState, useMemo, useCallback } from "react";
 import { Link } from "react-router-dom";
 
-const DataTableAdminItinerario = ({ data }) => {
+const DataTableItinerario = ({ data }) => {
   const [currentPage, setCurrentPage] = useState(1);
   const [rowsPerPage, setRowsPerPage] = useState(5);
 
@@ -34,13 +34,13 @@ const DataTableAdminItinerario = ({ data }) => {
                 Fecha Salida
               </th>
               <th className="w-1/6 py-3 px-4 uppercase font-semibold text-sm">
+                Fecha Llegada
+              </th>
+              <th className="w-1/6 py-3 px-4 uppercase font-semibold text-sm">
                 Origen
               </th>
               <th className="w-1/6 py-3 px-4 uppercase font-semibold text-sm">
                 Destino
-              </th>
-              <th className="w-1/6 py-3 px-4 uppercase font-semibold text-sm">
-                Tipo
               </th>
               <th className="w-1/6 py-3 px-4 uppercase font-semibold text-sm">
                 Precio
@@ -53,13 +53,13 @@ const DataTableAdminItinerario = ({ data }) => {
           <tbody className="text-gray-700">
             {currentRows.map((item, index) => (
               <tr key={index} className="bg-gray-100 border-b">
-                <td className="py-3 px-4">{item.fechaSalida}</td>
-                <td className="py-3 px-4">{item.origen}</td>
-                <td className="py-3 px-4">{item.destino}</td>
-                <td className="py-3 px-4">{item.tipo}</td>
-                <td className="py-3 px-4">{item.precio}</td>
+                <td className="py-3 px-4">{item.arrival_time}</td>
+                <td className="py-3 px-4">{item.departure_time}</td>
+                <td className="py-3 px-4">{item.departure_airport}</td>
+                <td className="py-3 px-4">{item.arrival_airport}</td>
+                <td className="py-3 px-4">{item.flight_cost}</td>
                 <td className="py-3 px-4 text-center">
-                  <Link to="/reservar-vuelo-admin">
+                  <Link to="/reservar-vuelo">
                     <button className="bg-success-color-btn p-2 pr-5 pl-5 rounded-lg hover:hover-success-color-btn text-white rounded-mt p-2 hover:bg-[#00BB07] focus:outline-none focus:shadow-outline">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -125,4 +125,4 @@ const DataTableAdminItinerario = ({ data }) => {
   );
 };
 
-export default DataTableAdminItinerario;
+export default DataTableItinerario;
