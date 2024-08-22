@@ -1,14 +1,23 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link, useNavigate } from "react-router-dom";
-
+import { jwtDecode } from "jwt-decode";
 import visaLogo from "../../public/visa.png";
 import Navbar from "../../components/user/navbarUser";
 import Tooltips from "../../components/tooltip";
 import "../../public/paymentForm.css"; // Asegúrate de tener esta hoja de estilos
 import cash from "../../public/dollar.png";
+import NavbarAdmin from "../../components/admin/navbarAdmin";
 
 const PaymentForm = () => {
+
+  const token = localStorage.getItem("token");
+  let userRole;
+
+  if(token){
+    const decodedToken = jwtDecode(token);
+    userRole = decodedToken.rol;
+  }
   const [showPaymentFields, setShowPaymentFields] = useState(false);
   const [formData, setFormData] = useState({
     accountNumber: "",
@@ -73,8 +82,7 @@ const PaymentForm = () => {
   };
 
   return (
-    <div>
-      <Navbar />
+    <div> {userRole === "admin" ? <NavbarAdmin /> : <Navbar />}
       <div className="min-h-screen flex items-center justify-center">
         <motion.div
           initial={{ opacity: 0, y: -50 }}

@@ -21,7 +21,7 @@ const NavbarAdmin = () => {
         </div>
         <div className="hidden md:flex items-center space-x-4">
           <Link
-            to="/reservar-vuelo-admin"
+            to="/reservaciones"
             className={`${
               location.pathname === "/reservaciones" ? "text-hover-link" : "text-gray-700"
             } hover:text-hover-link`}

@@ -69,6 +69,12 @@ function App() {
               }
             />
             <Route
+              path="/reservaciones"
+              element={
+                <PrivateRoute element={<ReservationTable />} roles={["admin"]} />
+              }
+            />
+            <Route
               path="/registrar-vuelo"
               element={
                 <PrivateRoute
@@ -77,19 +83,12 @@ function App() {
                 />
               }
             />
-
             <Route path="/home"
              element={
               <PrivateRoute element={<Home />} roles={["user"]} />
             } 
             />
 
-            <Route
-              path="/reservaciones"
-              element={
-                <PrivateRoute element={<ReservationTable />} roles={["user"]} />
-              }
-            />
             <Route
               path="/reservar-vuelo"
               element={
@@ -108,7 +107,7 @@ function App() {
             <Route
               path="/pagos"
               element={
-                <PrivateRoute element={<PaymentForm />} roles={["user"]} />
+                <PrivateRoute element={<PaymentForm />} roles={["user", "admin"]} />
               }
             />
             <Route
