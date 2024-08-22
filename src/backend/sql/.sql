@@ -33,6 +33,7 @@ CREATE TABLE reservations (
   firts_name VARCHAR(255) NOT NULL,
   last_name VARCHAR(255) NOT NULL,
   phone_number VARCHAR(255) NOT NULL,
+  cedula VARCHAR(255) NOT NULL,
   reservation_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
   status VARCHAR(255) NOT NULL,
   FOREIGN KEY (flight_id) REFERENCES flights(id)
