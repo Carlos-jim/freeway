@@ -16,7 +16,6 @@ import PersonData from "./view/user/personData";
 import LoginAdmin from "./view/admin/loginAdmin";
 import ItineraryTableAdmin from "./view/admin/ItinerarioAdmin";
 import FlightReservationAdmin from "./view/admin/FligthReservationAdmin";
-import PaymentFormAdmin from "./view/admin/paymentFormAdmin";
 import BoardingPassAdmin from "./view/admin/tarjetaEmbarqueAdmin";
 import { AuthProvider } from "../src/backend/src/context/AuthProvider";
 import PrivateRoute from "../src/backend/src/context/PrivateRoutes";
@@ -60,15 +59,6 @@ function App() {
               }
             />
             <Route
-              path="/pagos-admin"
-              element={
-                <PrivateRoute
-                  element={<PaymentFormAdmin />}
-                  roles={["admin"]}
-                />
-              }
-            />
-            <Route
               path="/reservaciones"
               element={
                 <PrivateRoute element={<ReservationTable />} roles={["admin"]} />
@@ -101,7 +91,7 @@ function App() {
             <Route
               path="/embarque"
               element={
-                <PrivateRoute element={<BoardingPass />} roles={["user"]} />
+                <PrivateRoute element={<BoardingPass />} roles={["user", "admin"]} />
               }
             />
             <Route

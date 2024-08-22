@@ -5,11 +5,21 @@ import barcode from "../../public/bar-code.png";
 import { Link } from "react-router-dom";
 import Navbar from "../../components/user/navbarUser";
 import { motion } from "framer-motion";
+import NavbarAdmin from "../../components/admin/navbarAdmin";
+import { jwtDecode } from "jwt-decode";
 
 const BoardingPass = () => {
+  const token = localStorage.getItem("token");
+  let userRole;
+
+  if (token) {
+    const decodedToken = jwtDecode(token);
+    userRole = decodedToken.rol;
+  }
   return (
     <div>
-      <Navbar />
+      {userRole === "admin" ? <NavbarAdmin /> : <Navbar />}
+
       <motion.div
         className="flex flex-col items-center"
         initial={{ opacity: 0 }}
