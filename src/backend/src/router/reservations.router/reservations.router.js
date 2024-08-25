@@ -1,4 +1,4 @@
-import {createReservationController} from "../../controllers/reservations.controller/reservations.controller.js"
+import {createReservationController, getAllReservationsController} from "../../controllers/reservations.controller/reservations.controller.js"
 import { Router } from 'express';
 import { check } from 'express-validator';
 
@@ -13,5 +13,6 @@ router.post('/reservation',[
     check('status', 'El formato debe ser tipo string').isString(),
 ], createReservationController)
 
+router.get('/get-reservations', getAllReservationsController)
 
 export default router;

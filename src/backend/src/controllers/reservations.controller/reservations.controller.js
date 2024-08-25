@@ -1,4 +1,4 @@
-import { createReservation } from "../../models/reservations.model/reservations.model.js";
+import { createReservation, getAllReservations } from "../../models/reservations.model/reservations.model.js";
 import { validationResult } from "express-validator";
 
 export const createReservationController = async (req, res) => {
@@ -18,4 +18,15 @@ export const createReservationController = async (req, res) => {
         console.error("Error en el servidor:", error);  // Agregar console.log para ver el error.
         res.status(500).json({ error: "Error en el servidor" });
     }
+}
+
+export const getAllReservationsController = async (req, res) => {
+    try {
+        const reservas = await getAllReservations();
+        res.json(reservas);
+    } catch (error) {
+        console.error('Error al obtener las reservas:', error);
+        res.status(500).json({ error: "Error al obtener las reservas" });
+    }
+ 
 }

@@ -6,7 +6,7 @@ import createPassenger from './router/passengerRegister/passengerRegister.router
 import createFlight from './router/registerFlight.router/registerFlight.router.js'
 import getFlights from './router/getFlight.router/getFlight.router.js'
 import login from './router/login.router/login.router.js'
-import createReservation from './router/reservations.router/reservations.router.js'
+import reservations from './router/reservations.router/reservations.router.js'
 const app = express();
 
 // Configuración básica de CORS
@@ -22,7 +22,7 @@ app.use('/api', createPassenger)
 app.use('/api', createFlight)
 app.use('/api', getFlights)
 app.use('/api', login)
-app.use('/api', createReservation)
+app.use('/api', reservations)
 app.use(pong)
 
 

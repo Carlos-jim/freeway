@@ -5,3 +5,8 @@ export const createReservation = async(reservation) =>{
     const [insert_database] = await pool.query('INSERT INTO reservations(flight_id, first_name, last_name,phone_number, cedula, status) VALUES (?,?,?,?,?,?)', [flight_id, first_name, last_name,phone_number, cedula, status])
     return insert_database;
 }
+
+export const getAllReservations = async() => {
+    const [rows] = await pool.query('SELECT * FROM reservations')
+    return rows;
+}
