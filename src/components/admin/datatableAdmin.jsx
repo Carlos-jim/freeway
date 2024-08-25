@@ -1,29 +1,24 @@
 import React, { useState, useEffect, useMemo, useCallback } from 'react';
-
-const data = [
-  {
-    vuelo: '9023948523849',
-    cedula: '131913456',
-    nombre: 'JOHN DOE',
-    tipo: 'ECONOMICA',
-    estado: 'SIN CONFIRMAR',
-    confirmado: false, // Nuevo estado para gestionar la confirmación
-  },
-  {
-    vuelo: '3475293478293',
-    cedula: '131913456',
-    nombre: 'JOHN DOE',
-    tipo: 'ECONOMICA',
-    estado: 'CONFIRMADA',
-    confirmado: true, // Nuevo estado para gestionar la confirmación
-  },
-  // ... resto de los datos
-];
+import api from '../../api/api';
 
 const TableAdmin = ({ filters }) => {
+  const [data, setData] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [rowsPerPage, setRowsPerPage] = useState(5);
   const [filteredData, setFilteredData] = useState(data);
+
+  useEffect(() =>{
+    const fetchData = async () => {
+      try {
+        const response = await api.get('/get-reservations');
+        setData(response.data);
+      } catch (error) {
+        console.error("Error al obtener los datos:", error);
+      }
+    };
+
+    fetchData();
+  }, []);
 
   useEffect(() => {
     const applyFilters = () => {
@@ -64,8 +59,8 @@ const TableAdmin = ({ filters }) => {
   // Función para manejar el cambio de estado al hacer clic en el botón
   const handleConfirmClick = (index) => {
     const newData = [...filteredData];
-    newData[index].confirmado = !newData[index].confirmado;
-    newData[index].estado = newData[index].confirmado ? 'CONFIRMADA' : 'NO CONFIRMADA'; // Cambia el estado basado en la confirmación
+    newData[index].confirmation = !newData[index].confirmation;
+    newData[index].status = newData[index].confirmation ? 'CONFIRMADA' : 'NO CONFIRMADA'; // Cambia el estado basado en la confirmación
     setFilteredData(newData);
   };
 
@@ -114,29 +109,33 @@ const TableAdmin = ({ filters }) => {
           <thead>
             <tr className="text-white" style={{ background: "#6147FF" }}>
               <th className="py-2 px-4 border-b">VUELO</th>
-              <th className="py-2 px-4 border-b">CÉDULA</th>
-              <th className="py-2 px-4 border-b">NOMBRE Y APELLIDO</th>
-              <th className="py-2 px-4 border-b">TIPO</th>
+              <th className="py-2 px-4 border-b">NOMBRE</th>
+              <th className="py-2 px-4 border-b">APELLIDO</th>
+              <th className="py-2 px-4 border-b">NÚMERO DE TELEFONO</th>
+              <th className="py-2 px-4 border-b">CEDULA DE IDENTIDAD</th>
+              <th className="py-2 px-4 border-b">FECHA DE RESERVACION</th>
               <th className="py-2 px-4 border-b">ESTADO DE LA RESERVA</th>
-              <th className="py-2 px-4 border-b">CONFIRMAR DATOS</th>
+              <th className="py-2 px-4 border-b"></th>
             </tr>
           </thead>
           <tbody>
             {currentRows.map((reservation, index) => (
               <tr key={index} className="text-gray-700">
-                <td className="py-2 px-4 border-b">{reservation.vuelo}</td>
+                <td className="py-2 px-4 border-b">{reservation.flight_id}</td>
+                <td className="py-2 px-4 border-b">{reservation.first_name}</td>
+                <td className="py-2 px-4 border-b">{reservation.last_name}</td>
+                <td className="py-2 px-4 border-b">{reservation.phone_number}</td>
                 <td className="py-2 px-4 border-b">{reservation.cedula}</td>
-                <td className="py-2 px-4 border-b">{reservation.nombre}</td>
-                <td className="py-2 px-4 border-b">{reservation.tipo}</td>
-                <td className={`py-2 px-4 border-b ${reservation.confirmado ? 'text-green-500' : 'text-red-500'}`}>
-                  {reservation.estado}
+                <td className="py-2 px-4 border-b">{reservation.reservation_date}</td>
+                <td className={`py-2 px-4 border-b ${reservation.confirmation ? 'text-green-500' : 'text-red-500'}`}>
+                  {reservation.status}
                 </td>
                 <td className="py-2 px-4 border-b text-center">
                   <button
                     onClick={() => handleConfirmClick(index)}
-                    className={`${reservation.confirmado ? 'bg-red-600 hover:bg-red-700' : 'bg-success-color-btn hover:bg-hover-success-color-btn'} text-white font-bold py-1 px-2 rounded`}
+                    className={`${reservation.confirmation ? 'bg-red-600 hover:bg-red-700' : 'bg-success-color-btn hover:bg-hover-success-color-btn'} text-white font-bold py-1 px-2 rounded`}
                   >
-                    {reservation.confirmado ? (
+                    {reservation.confirmation ? (
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         fill="none"

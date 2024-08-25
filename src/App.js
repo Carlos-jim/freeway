@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Login from "./view/user/login";
 import Register from "./view/user/register";
 import FlightRegistration from "./view/admin/fligthRegistration";
-import ReservationTable from "./view/user/reservas";
+import ReservationTable from "./view/admin/reservas";
 import FlightReservation from "./view/user/FligthReservation";
 import PaymentForm from "./view/user/paymentForm";
 import CheckInForm from "./view/user/checkin";

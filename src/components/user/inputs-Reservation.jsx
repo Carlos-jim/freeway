@@ -14,6 +14,7 @@ const InputsReservation = () => {
     phone_number: "",
     cedula: "",
     status: "SIN CONFIRMAR",
+    confirmation: false
   });
 
   const navigate = useNavigate();

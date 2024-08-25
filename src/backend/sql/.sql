@@ -36,6 +36,7 @@ CREATE TABLE reservations (
   cedula VARCHAR(255) NOT NULL,
   reservation_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
   status VARCHAR(255) NOT NULL,
+  confirmation BOOLEAN  NOT NULL,
   FOREIGN KEY (flight_id) REFERENCES flights(id)
 );
 
@@ -46,3 +47,6 @@ CREATE TABLE seats (
   is_available BOOLEAN DEFAULT TRUE,
   FOREIGN KEY (flight_id) REFERENCES flights(id)
 );
+
+
+INSERT INTO airlines (name, code) VALUES ("FreewayAirlines", "AA20")

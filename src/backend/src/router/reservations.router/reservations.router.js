@@ -11,6 +11,7 @@ router.post('/reservation',[
     check('phone_number', 'El formato debe ser tipo numerico').isNumeric(),
     check('cedula', 'El formato debe ser tipo string').isString(),
     check('status', 'El formato debe ser tipo string').isString(),
+    check('confirmation', "El formato deber ser tipo boolean").isBoolean()
 ], createReservationController)
 
 router.get('/get-reservations', getAllReservationsController)

@@ -5,11 +5,14 @@ import Tooltips from "../../components/tooltip";
 
 const ReservationTable = () => {
   const [filters, setFilters] = useState({
-    vuelo: "",
+    flight_id: "",
+    first_name: "",
+    last_name: "",
+    phone_number: "",
     cedula: "",
-    nombre: "",
-    tipo: "",
-    estado: "",
+    reservation_date: "",
+    status: "",
+    confirmation: false
   });
 
   const handleInputChange = (e) => {
