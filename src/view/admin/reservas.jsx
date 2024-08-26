@@ -8,7 +8,6 @@ const ReservationTable = () => {
     flight_id: "",
     first_name: "",
     last_name: "",
-    phone_number: "",
     cedula: "",
     reservation_date: "",
     status: "",
@@ -68,39 +67,39 @@ const ReservationTable = () => {
                 />
               </div>
               <div className="w-full md:w-1/5 px-2 mb-4 md:mb-0">
-                <label htmlFor="nombre" className="block text-gray-700 text-sm font-bold mb-2">
-                  NOMBRE Y APELLIDO
+                <label htmlFor="first_name" className="block text-gray-700 text-sm font-bold mb-2">
+                  NOMBRE
                 </label>
                 <input
                   className="shadow border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                  id="nombre"
+                  id="first_name"
                   type="text"
-                  placeholder="NOMBRE Y APELLIDO"
-                  value={filters.nombre}
+                  placeholder="Pedro"
+                  value={filters.first_name}
                   onChange={handleInputChange}
                 />
               </div>
               <div className="w-full md:w-1/5 px-2 mb-4 md:mb-0">
-                <label htmlFor="tipo" className="block text-gray-700 text-sm font-bold mb-2">
-                  TIPO
+                <label htmlFor="last_name" className="block text-gray-700 text-sm font-bold mb-2">
+                  APELLIDO
                 </label>
                 <input
-                  className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                  id="tipo"
+                  className="shadow border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                  id="last_name"
                   type="text"
-                  placeholder="TIPO"
-                  value={filters.tipo}
+                  placeholder="Rodriguez"
+                  value={filters.last_name}
                   onChange={handleInputChange}
                 />
               </div>
               <div className="w-full md:w-1/5 px-2">
-                <label htmlFor="estado" className="block text-gray-700 text-sm font-bold mb-2">
+                <label htmlFor="status" className="block text-gray-700 text-sm font-bold mb-2">
                   ESTADO
                 </label>
                 <select
                   className="shadow border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                  id="estado"
-                  value={filters.estado}
+                  id="status"
+                  value={filters.status}
                   onChange={handleInputChange}
                 >
                   <option value="">Todos los estados</option>

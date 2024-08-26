@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useMemo, useCallback } from 'react';
-import api from '../../api/api';
+import api from '../../api/api'; // Asegúrate de tener configurado axios en api.js
 
 const TableAdmin = ({ filters }) => {
   const [data, setData] = useState([]);
@@ -31,7 +31,7 @@ const TableAdmin = ({ filters }) => {
       });
 
       setFilteredData(filtered);
-      setCurrentPage(1); // Reset to the first page when filters change
+      setCurrentPage(1);
     };
 
     applyFilters();
@@ -56,12 +56,32 @@ const TableAdmin = ({ filters }) => {
     setCurrentPage(1);
   }, []);
 
-  // Función para manejar el cambio de estado al hacer clic en el botón
-  const handleConfirmClick = (index) => {
-    const newData = [...filteredData];
-    newData[index].confirmation = !newData[index].confirmation;
-    newData[index].status = newData[index].confirmation ? 'CONFIRMADA' : 'NO CONFIRMADA'; // Cambia el estado basado en la confirmación
-    setFilteredData(newData);
+  const handleConfirmClick = async (index) => {
+    const updatedData = [...filteredData];
+    const reservation = updatedData[index];
+
+
+    reservation.confirmation = !reservation.confirmation;
+    reservation.status = reservation.confirmation ? 'CONFIRMADA' : 'SIN CONFIRMADA';
+
+    setFilteredData(updatedData);
+
+    try {
+
+      await api.put(`/put-reservation/${reservation.id}`, {
+        confirmation: reservation.confirmation,
+        status: reservation.status,
+      });
+
+      console.log('Reserva actualizada exitosamente en la base de datos');
+    } catch (error) {
+      console.error('Error al actualizar la reserva:', error);
+
+
+      updatedData[index].confirmation = !reservation.confirmation; // Undo toggle
+      updatedData[index].status = reservation.confirmation ? 'SIN CONFIRMADA' : 'CONFIRMADA';
+      setFilteredData(updatedData);
+    }
   };
 
   return (
@@ -134,6 +154,7 @@ const TableAdmin = ({ filters }) => {
                   <button
                     onClick={() => handleConfirmClick(index)}
                     className={`${reservation.confirmation ? 'bg-red-600 hover:bg-red-700' : 'bg-success-color-btn hover:bg-hover-success-color-btn'} text-white font-bold py-1 px-2 rounded`}
+
                   >
                     {reservation.confirmation ? (
                       <svg

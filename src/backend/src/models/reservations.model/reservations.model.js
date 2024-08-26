@@ -10,3 +10,10 @@ export const getAllReservations = async() => {
     const [rows] = await pool.query('SELECT * FROM reservations')
     return rows;
 }
+
+
+export const putStatusReservation = async(id, putReservation) => {
+    const { status, confirmation } = putReservation;
+    const [put_database] = await pool.query('UPDATE reservations SET status =?, confirmation=? WHERE id =?', [status, confirmation,id]);
+    return put_database;
+}

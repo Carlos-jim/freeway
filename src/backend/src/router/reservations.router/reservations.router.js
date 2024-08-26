@@ -1,4 +1,4 @@
-import {createReservationController, getAllReservationsController} from "../../controllers/reservations.controller/reservations.controller.js"
+import {createReservationController, getAllReservationsController, putStatusReservationController} from "../../controllers/reservations.controller/reservations.controller.js"
 import { Router } from 'express';
 import { check } from 'express-validator';
 
@@ -15,5 +15,10 @@ router.post('/reservation',[
 ], createReservationController)
 
 router.get('/get-reservations', getAllReservationsController)
+
+router.put('/put-reservation/:id',[
+    check('status', 'El formato debe ser tipo string').isString(),
+    check('confirmation', 'El formato debe ser tipo booleado').isBoolean()
+], putStatusReservationController )
 
 export default router;

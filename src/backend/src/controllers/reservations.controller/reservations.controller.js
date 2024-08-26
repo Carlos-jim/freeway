@@ -1,4 +1,4 @@
-import { createReservation, getAllReservations } from "../../models/reservations.model/reservations.model.js";
+import { createReservation, getAllReservations, putStatusReservation } from "../../models/reservations.model/reservations.model.js";
 import { validationResult } from "express-validator";
 
 export const createReservationController = async (req, res) => {
@@ -29,4 +29,29 @@ export const getAllReservationsController = async (req, res) => {
         res.status(500).json({ error: "Error al obtener las reservas" });
     }
  
+}
+
+
+export const putStatusReservationController = async (req, res) => {
+    const errors = validationResult(req)
+
+    if (!errors.isEmpty()) {
+        return res.status(400).json({ errors: errors.array() });
+    }
+
+    try {
+        const { id } = req.params;
+        const { status, confirmation } = req.body;
+
+        // Actualizar la reserva en la base de datos
+        const update_result = await putStatusReservation(id, { status, confirmation });
+
+        if (update_result.affectedRows === 0) {
+            return res.status(404).json({ error: 'Reserva no encontrada' });
+        }
+
+        res.json({ message: 'Reserva actualizada exitosamente' });
+    } catch (error) {
+        
+    }
 }
