@@ -5,6 +5,7 @@ import api from "../../api/api.js";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useNavigate } from 'react-router-dom';
+import { useAuth } from "../../backend/src/context/AuthProvider.js";
 
 const InputsReservation = () => {
   const [formData, setFormData] = useState({
@@ -19,7 +20,7 @@ const InputsReservation = () => {
 
   const navigate = useNavigate();
   const notifySuccess = () => toast.success("Reserva realizada con éxito!");
-
+  const {user } = useAuth()
   const handleChange = useCallback((e) => {
     const { name, value } = e.target;
     setFormData((prevData) => ({
@@ -28,11 +29,16 @@ const InputsReservation = () => {
     }));
   }, []);
 
+
+  
   const handleSubmit = useCallback(
     async (e) => {
       e.preventDefault();
+      // Añadir el user_id a los datos del formulario
+      const reservationData = { ...formData, user_id:  user.userId };
+      //console.log(reservationData);
       try {
-        const response = await api.post("/reservation", formData);
+        const response = await api.post("/reservation", reservationData);
 
         if (response.status === 201) {
           notifySuccess();
@@ -46,7 +52,7 @@ const InputsReservation = () => {
         toast.error(err.response?.data?.message || "Error al realizar la reserva.");
       }
     },
-    [formData, navigate]
+    [formData, navigate, user]
   );
 
   return (

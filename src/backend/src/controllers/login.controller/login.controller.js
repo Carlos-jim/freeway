@@ -24,7 +24,7 @@ export const findUserByEmailController = async (req, res) => {
             return res.status(400).json({ error: 'Correo o contraseña incorrectos' });
         }
 
-        const token = jwt.sign({ userId: user.id_usuario, email: user.email, rol: user.rol }, 'tu_secreto_jwt', { expiresIn: '1h' });
+        const token = jwt.sign({ userId: user.id, email: user.email, rol: user.rol }, 'tu_secreto_jwt', { expiresIn: '1h' });
 
         res.json({ token });
     } catch (error) {

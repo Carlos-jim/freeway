@@ -9,9 +9,9 @@ export const createReservationController = async (req, res) => {
     }
 
     try {
-        const {flight_id, first_name, last_name, phone_number, cedula, status, confirmation} = req.body;
+        const {flight_id, user_id,first_name, last_name, phone_number, cedula, status, confirmation} = req.body;
 
-        const insert_data = await createReservation({flight_id, first_name, last_name, phone_number, cedula, status, confirmation});
+        const insert_data = await createReservation({flight_id,user_id, first_name, last_name, phone_number, cedula, status, confirmation});
 
         res.status(201).json({ message: 'Reserva registrada exitosamente', reservaId: insert_data.insertId });
     } catch (error) {

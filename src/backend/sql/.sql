@@ -30,6 +30,7 @@ CREATE TABLE passengers (
 CREATE TABLE reservations (
   id BIGINT PRIMARY KEY AUTO_INCREMENT,
   flight_id BIGINT,
+  user_id BIGINT,
   first_name VARCHAR(255) NOT NULL,
   last_name VARCHAR(255) NOT NULL,
   phone_number VARCHAR(255) NOT NULL,
@@ -37,7 +38,8 @@ CREATE TABLE reservations (
   reservation_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
   status VARCHAR(255) NOT NULL,
   confirmation BOOLEAN  NOT NULL,
-  FOREIGN KEY (flight_id) REFERENCES flights(id)
+  FOREIGN KEY (flight_id) REFERENCES flights(id),
+  FOREIGN KEY (user_id) REFERENCES passengers(id)
 );
 
 CREATE TABLE seats (
@@ -50,3 +52,5 @@ CREATE TABLE seats (
 
 
 INSERT INTO airlines (name, code) VALUES ("FreewayAirlines", "AA20")
+
+INSERT INTO flights(airline_id, flight_number, departure_airport, arrival_airport, departure_time, arrival_time,flight_cost) VALUES ("FreewayAirlines", "AA20", "Los roques", "Porlamar", "2024/10/24", "2024/10/30", "120" )

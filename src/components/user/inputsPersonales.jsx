@@ -151,155 +151,9 @@ const InputsPersonales = () => {
             )}
           </motion.div>
 
-          <motion.div className="relative mt-4" transition={{ delay: 0.3 }}>
-            <input
-              type="date"
-              id="fechaNacimiento"
-              placeholder=" "
-              className="peer border p-2 rounded w-full"
-              value={formData.fechaNacimiento}
-              onChange={handleChange}
-            />
-            <label
-              htmlFor="fechaNacimiento"
-              className="absolute text-gray-500 duration-300 transform -translate-y-6 scale-75 top-1 left-3 origin-[0] peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
-            >
-              Fecha Nacimiento
-            </label>
-            {errors.fechaNacimiento && (
-              <p className="text-red-500 text-xs italic">
-                {errors.fechaNacimiento}
-              </p>
-            )}
-          </motion.div>
-
-          <motion.div className="relative mt-4" transition={{ delay: 0.4 }}>
-            <select
-              id="tipoDocumento"
-              className="peer border p-2 rounded w-full bg-transparent"
-              value={formData.tipoDocumento}
-              onChange={handleChange}
-              required
-            >
-              <option value="" disabled hidden>
-                Tipo de Documento
-              </option>
-              <option value="cedula">Cédula de identidad</option>
-              <option value="pasaporte">Pasaporte</option>
-            </select>
-            <label
-              htmlFor="tipoDocumento"
-              className="absolute text-gray-500 duration-300 transform -translate-y-6 scale-75 top-1 left-3 origin-[0] peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
-            >
-              Tipo de Documento*
-            </label>
-            {errors.tipoDocumento && (
-              <p className="text-red-500 text-xs italic">
-                {errors.tipoDocumento}
-              </p>
-            )}
-          </motion.div>
-
-          <motion.div className="relative mt-4" transition={{ delay: 0.5 }}>
-            <input
-              type="text"
-              id="numeroDocumento"
-              placeholder=" "
-              className="peer border p-2 rounded w-full"
-              value={formData.numeroDocumento}
-              onChange={handleChange}
-              required
-            />
-            <label
-              htmlFor="numeroDocumento"
-              className="absolute text-gray-500 duration-300 transform -translate-y-6 scale-75 top-1 left-3 origin-[0] peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
-            >
-              N° de Documento*
-            </label>
-            {errors.numeroDocumento && (
-              <p className="text-red-500 text-xs italic">
-                {errors.numeroDocumento}
-              </p>
-            )}
-          </motion.div>
-
-          <motion.div className="relative mt-4" transition={{ delay: 0.6 }}>
-            <input
-              type="date"
-              id="fechaVencimiento"
-              placeholder=" "
-              className="peer border p-2 rounded w-full"
-              value={formData.fechaVencimiento}
-              onChange={handleChange}
-              required
-            />
-            <label
-              htmlFor="fechaVencimiento"
-              className="absolute text-gray-500 duration-300 transform -translate-y-6 scale-75 top-1 left-3 origin-[0] peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
-            >
-              Fecha Vto. Pasaporte*
-            </label>
-            {errors.fechaVencimiento && (
-              <p className="text-red-500 text-xs italic">
-                {errors.fechaVencimiento}
-              </p>
-            )}
-          </motion.div>
-
-          <motion.div className="relative mt-4" transition={{ delay: 0.7 }}>
-            <select
-              id="paisOrigen"
-              className="peer border p-2 rounded w-full bg-transparent"
-              value={formData.paisOrigen}
-              onChange={handleChange}
-            >
-              <option value="" disabled hidden>
-                País de origen
-              </option>
-              {nacionalidadOptions.nacionalidad.map((option) => (
-                <option key={option.value} value={option.value}>
-                  {option.label}
-                </option>
-              ))}
-            </select>
-            <label
-              htmlFor="paisOrigen"
-              className="absolute text-gray-500 duration-300 transform -translate-y-6 scale-75 top-1 left-3 origin-[0] peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
-            >
-              País de origen
-            </label>
-            {errors.paisOrigen && (
-              <p className="text-red-500 text-xs italic">{errors.paisOrigen}</p>
-            )}
-          </motion.div>
-
-          <motion.div className="relative mt-4" transition={{ delay: 0.8 }}>
-            <select
-              id="genero"
-              className="peer border p-2 rounded w-full bg-transparent"
-              value={formData.genero}
-              onChange={handleChange}
-            >
-              <option value="" disabled hidden>
-                Género
-              </option>
-              <option value="masculino">Masculino</option>
-              <option value="femenino">Femenino</option>
-            </select>
-            <label
-              htmlFor="genero"
-              className="absolute text-gray-500 duration-300 transform -translate-y-6 scale-75 top-1 left-3 origin-[0] peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
-            >
-              Género
-            </label>
-            {errors.genero && (
-              <p className="text-red-500 text-xs italic">{errors.genero}</p>
-            )}
-          </motion.div>
-
           <motion.div className="relative mt-4" transition={{ delay: 0.9 }}>
             <input
-              type="email"
+              type="number"
               id="correo"
               placeholder=" "
               className="peer border p-2 rounded w-full"
@@ -311,7 +165,7 @@ const InputsPersonales = () => {
               htmlFor="correo"
               className="absolute text-gray-500 duration-300 transform -translate-y-6 scale-75 top-1 left-3 origin-[0] peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
             >
-              Correo*
+             Cedula de identidad
             </label>
             {errors.correo && (
               <p className="text-red-500 text-xs italic">{errors.correo}</p>
@@ -341,7 +195,7 @@ const InputsPersonales = () => {
         </motion.div>
 
         <motion.div
-          className="flex justify-center mt-4"
+          className="flex justify-center mt-4 mb-8"
           initial={{ opacity: 0, y: -50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 1.1 }}
